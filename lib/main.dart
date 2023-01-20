@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Arara',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -42,9 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _telas = [
     const TelaInicio(),
-    TelaNoticias(),
-    TelaAvaliacoes(),
-    TelaPerfil()
+    const TelaNoticias(),
+    const TelaAvaliacoes(),
+    const TelaPerfil()
   ];
 
   void onTabTapped(int index) {
@@ -56,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _telas[_indiceAtual],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _indiceAtual,
@@ -84,7 +86,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: _telas[_indiceAtual],
       floatingActionButton: Visibility(
         visible: _indiceAtual == 0,
         child: FloatingActionButton.extended(

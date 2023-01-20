@@ -1,7 +1,7 @@
 import 'package:arara/enums/color_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class TelaInicio extends StatelessWidget {
   const TelaInicio({super.key});
@@ -244,23 +244,23 @@ class TelaInicio extends StatelessWidget {
     double safeHeight = height - padding.top - padding.bottom;
     print(safeHeight);
 
-    if(safeHeight <= 600){
+    if (safeHeight <= 600) {
       safeHeight = safeHeight * 1.8;
     }
 
-    if(safeHeight > 600 && safeHeight <= 650){
+    if (safeHeight > 600 && safeHeight <= 650) {
       safeHeight = safeHeight * 1.6;
     }
 
-    if(safeHeight > 650 && safeHeight <= 700){
+    if (safeHeight > 650 && safeHeight <= 700) {
       safeHeight = safeHeight * 1.5;
     }
 
-    if(safeHeight > 700 && safeHeight <= 750){
+    if (safeHeight > 700 && safeHeight <= 750) {
       safeHeight = safeHeight * 1.2;
     }
 
-    if(safeHeight > 750){
+    if (safeHeight > 750) {
       safeHeight = safeHeight * 1.5;
     }
 

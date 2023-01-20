@@ -238,6 +238,27 @@ class TelaInicio extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     var padding = MediaQuery.of(context).viewPadding;
     double safeHeight = height - padding.top - padding.bottom;
+    print(safeHeight);
+
+    if(safeHeight <= 600){
+      safeHeight = safeHeight * 1.8;
+    }
+
+    if(safeHeight > 600 && safeHeight <= 650){
+      safeHeight = safeHeight * 1.6;
+    }
+
+    if(safeHeight > 650 && safeHeight <= 700){
+      safeHeight = safeHeight * 1.5;
+    }
+
+    if(safeHeight > 700 && safeHeight <= 750){
+      safeHeight = safeHeight * 1.2;
+    }
+
+    if(safeHeight > 750){
+      safeHeight = safeHeight * 1.5;
+    }
 
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -306,8 +327,9 @@ class TelaInicio extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: safeHeight + (safeHeight * 55/100),
+                height: safeHeight,
                 child: TabBarView(
+                  physics: const BouncingScrollPhysics(),
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -345,23 +367,6 @@ class TelaInicio extends StatelessWidget {
                             'Tv. Padre Eutíquio, 218 - Campina',
                             'Seg. a Sab. - 08:00 às 18:00',
                             '(91) 3212-0413'),
-                        Container(
-                          margin: const EdgeInsets.only(top: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const <Widget>[
-                              Text(
-                                'Ver mais',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                  color: Colors.black87,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              )
-                            ],
-                          ),
-                        )
                       ]),
                     ),
                     Padding(
@@ -400,23 +405,6 @@ class TelaInicio extends StatelessWidget {
                             '@stylus_brecho',
                             '(91) 3212-0413',
                             'Formas de pagamento: pix, débito e crédito'),
-                        Container(
-                          margin: const EdgeInsets.only(top: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const <Widget>[
-                              Text(
-                                'Ver mais',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                  color: Colors.black87,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
                       ]),
                     )
                   ],

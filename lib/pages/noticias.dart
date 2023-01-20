@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:arara/enums/color_enum.dart';
 
 class TelaNoticias extends StatelessWidget {
   const TelaNoticias({super.key});
@@ -47,6 +48,19 @@ class TelaNoticias extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     var padding = MediaQuery.of(context).viewPadding;
     double safeHeight = height - padding.top - padding.bottom;
+    print(safeHeight);
+
+    if(safeHeight <= 600){
+      safeHeight = safeHeight * 1.4;
+    }
+
+    if(safeHeight > 600 && safeHeight <= 750){
+      safeHeight = safeHeight * 1.2;
+    }
+
+    if(safeHeight > 750){
+      safeHeight = safeHeight * 1.1;
+    }
 
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -82,7 +96,7 @@ class TelaNoticias extends StatelessWidget {
                           indicator: UnderlineTabIndicator(
                               insets: EdgeInsets.symmetric(horizontal: 30),
                               borderSide: BorderSide(
-                                  color: Color(0xffa071a0),
+                                  color: ColorEnum.roxo,
                                   width: 3,
                                   style: BorderStyle.solid)),
                           tabs: [
@@ -108,6 +122,7 @@ class TelaNoticias extends StatelessWidget {
               SizedBox(
                 height: safeHeight,
                 child: TabBarView(
+                  physics: const BouncingScrollPhysics(),
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -730,9 +745,7 @@ class TelaNoticias extends StatelessWidget {
                         itemArtigo('Moda com práticas sustentáveis estão em alta',
                             '2022 | O Liberal | Bruna Dias'),
                         itemArtigo('A moda sustentável do Amazônia Fashion Week',
-                            '2022 | Steal The Look | Milena Otta'),
-                        itemArtigo('Estilista de Santarém faz sucesso com criações baseadas na biodiversidade amazônica',
-                            '2022 | O Liberal | Ândria Almeida')
+                            '2022 | Steal The Look | Milena Otta')
                       ]),
                     ),
                     Padding(

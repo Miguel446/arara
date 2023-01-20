@@ -1,3 +1,4 @@
+import 'package:arara/enums/color_enum.dart';
 import 'package:flutter/material.dart';
 import 'pages/inicio.dart';
 import 'pages/noticias.dart';
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _indiceAtual,
         onTap: onTabTapped,
-        selectedItemColor: const Color(0xffa071a0),
+        selectedItemColor: ColorEnum.roxo,
         unselectedItemColor: const Color(0x801E1E1E),
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -93,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
           }, label: Row(
           children: const [Text('Explore '), Icon(Icons.explore)],
         ),
-        backgroundColor: const Color(0xffa071a0),),
+        backgroundColor: ColorEnum.roxo,),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

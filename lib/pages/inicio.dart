@@ -274,9 +274,10 @@ class TelaInicio extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                  margin: const EdgeInsets.all(20),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   child: const Image(
-                    image: AssetImage('assets/logo.png'),
+                    height: 80,
+                    image: AssetImage('assets/icone.png'),
                   )),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),

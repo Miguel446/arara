@@ -1,4 +1,4 @@
-package com.tcc.ararav2
+package com.tcc.arara
 
 import io.flutter.embedding.android.FlutterActivity
 

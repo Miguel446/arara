@@ -46,29 +46,26 @@ class TelaPerfil extends StatelessWidget {
   }
 
   Widget itemTitulo(String titulo) {
-    return Container(
-      margin: const EdgeInsets.only(top: 20),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text(titulo,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  ),
-                  textAlign: TextAlign.left),
-            ],
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          const Divider(
-            thickness: 1,
-            color: Colors.grey,
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text(titulo,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+                textAlign: TextAlign.left),
+          ],
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        const Divider(
+          thickness: 1,
+          color: Colors.grey,
+        )
+      ],
     );
   }
 
@@ -85,18 +82,25 @@ class TelaPerfil extends StatelessWidget {
               children: [
                 Container(
                     alignment: Alignment.center,
-                    margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
+                    margin: const EdgeInsets.only(top: 10, bottom: 10),
                     child: const Image(
-                      image: AssetImage('assets/logo.png'),
+                      height: 80,
+                      image: AssetImage('assets/icone.png'),
                     )),
                 itemTitulo('Meus dados'),
                 itemOpcao('Perfil', Icons.account_circle),
                 itemOpcao('Alterar senha', Icons.key),
                 itemOpcao('Favoritos', Icons.favorite),
+                const SizedBox(
+                  height: 20,
+                ),
                 itemTitulo('Configurações da conta'),
                 itemOpcao('Acessibilidade', Icons.settings_accessibility),
                 itemOpcao('Notificações', Icons.notifications),
                 itemOpcao('Encerrar conta', Icons.warning),
+                const SizedBox(
+                  height: 20,
+                ),
                 itemTitulo('Suporte'),
                 itemOpcao('Tutorial rápido', Icons.support),
                 itemOpcao('Fale conosco', Icons.support_agent),

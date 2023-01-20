@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:arara/enums/color_enum.dart';
+import 'package:flutter/material.dart';
 
 class TelaNoticias extends StatelessWidget {
   const TelaNoticias({super.key});
@@ -174,9 +174,10 @@ class TelaNoticias extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                  margin: const EdgeInsets.all(20),
+                  margin: const EdgeInsets.only(top: 10, bottom: 0),
                   child: const Image(
-                    image: AssetImage('assets/logo.png'),
+                    height: 80,
+                    image: AssetImage('assets/icone.png'),
                   )),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),

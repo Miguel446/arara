@@ -155,9 +155,10 @@ class TelaAvaliacoes extends StatelessWidget {
               children: [
                 Container(
                     alignment: Alignment.center,
-                    margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10, bottom: 10),
                     child: const Image(
-                      image: AssetImage('assets/logo.png'),
+                      height: 80,
+                      image: AssetImage('assets/icone.png'),
                     )),
                 Row(
                   children: const [

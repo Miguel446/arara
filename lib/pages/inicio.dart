@@ -339,8 +339,8 @@ class TelaInicio extends StatelessWidget {
                         ),
                         cardBazarFisico([
                           'assets/brecho.png',
-                          'assets/brecho.png',
-                          'assets/brecho.png'
+                          'assets/brecho12.jpeg',
+                          'assets/brecho13.jpeg'
                         ],
                             'Pinguinho Brechó Space',
                             '4,98',
@@ -349,8 +349,8 @@ class TelaInicio extends StatelessWidget {
                             '-'),
                         cardBazarFisico([
                           'assets/brecho2.png',
-                          'assets/brecho2.png',
-                          'assets/brecho2.png'
+                          'assets/brecho22.jpeg',
+                          'assets/brecho23.jpeg'
                         ],
                             'Brechós de Elite',
                             '4,98',
@@ -359,8 +359,8 @@ class TelaInicio extends StatelessWidget {
                             '(91) 98337-5857'),
                         cardBazarFisico([
                           'assets/brecho3.png',
-                          'assets/brecho3.png',
-                          'assets/brecho3.png'
+                          'assets/brecho32.jpeg',
+                          'assets/brecho33.jpeg'
                         ],
                             'Brechó Stylus',
                             '4,98',
@@ -377,8 +377,8 @@ class TelaInicio extends StatelessWidget {
                         ),
                         cardBazarVirtual([
                           'assets/brecho.png',
-                          'assets/brecho.png',
-                          'assets/brecho.png'
+                          'assets/brecho12.jpeg',
+                          'assets/brecho13.jpeg'
                         ],
                             'Pinguinho Brechó Space',
                             '4,98',
@@ -387,8 +387,8 @@ class TelaInicio extends StatelessWidget {
                             'Formas de pagamento: pix, débito e crédito'),
                         cardBazarVirtual([
                           'assets/brecho2.png',
-                          'assets/brecho2.png',
-                          'assets/brecho2.png'
+                          'assets/brecho22.jpeg',
+                          'assets/brecho23.jpeg'
                         ],
                             'Brechós de Elite',
                             '4,98',
@@ -397,8 +397,8 @@ class TelaInicio extends StatelessWidget {
                             'Formas de pagamento: pix e dinheiro'),
                         cardBazarVirtual([
                           'assets/brecho3.png',
-                          'assets/brecho3.png',
-                          'assets/brecho3.png'
+                          'assets/brecho32.jpeg',
+                          'assets/brecho33.jpeg'
                         ],
                             'Brechó Stylus',
                             '4,98',

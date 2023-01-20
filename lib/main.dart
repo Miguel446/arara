@@ -41,6 +41,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   int _indiceAtual = 0;
+  String textoBotao = "Explore ";
+  Icon iconeBotao = const Icon(Icons.explore);
 
   final List<Widget> _telas = [
     const TelaInicio(),
@@ -52,6 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void onTabTapped(int index) {
     setState(() {
       _indiceAtual = index;
+      if(index == 2){
+        textoBotao = "Avaliar ";
+        iconeBotao = const Icon(Icons.reviews);
+      }else{
+        textoBotao = "Explore ";
+        iconeBotao = const Icon(Icons.explore);
+      }
     });
   }
 
@@ -88,11 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: Visibility(
-        visible: _indiceAtual == 0,
+        visible: _indiceAtual == 0 || _indiceAtual == 2,
         child: FloatingActionButton.extended(
           onPressed: () => {
           }, label: Row(
-          children: const [Text('Explore '), Icon(Icons.explore)],
+          children: [Text(textoBotao), iconeBotao],
         ),
         backgroundColor: ColorEnum.roxo,),
       ),

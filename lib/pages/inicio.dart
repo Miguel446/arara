@@ -16,6 +16,8 @@ class TelaInicio extends StatelessWidget {
             borderRadius: BorderRadius.circular(24.0),
             child: ImageSlideshow(
               height: 200,
+              indicatorRadius: 4,
+              indicatorBackgroundColor: Colors.white70,
               indicatorColor: ColorEnum.verde,
               autoPlayInterval: 0,
               children: <Widget>[
@@ -132,6 +134,8 @@ class TelaInicio extends StatelessWidget {
             borderRadius: BorderRadius.circular(24.0),
             child: ImageSlideshow(
               height: 200,
+              indicatorRadius: 4,
+              indicatorBackgroundColor: Colors.white70,
               indicatorColor: ColorEnum.verde,
               autoPlayInterval: 0,
               children: <Widget>[
@@ -352,7 +356,7 @@ class TelaInicio extends StatelessWidget {
                           'assets/brecho22.jpeg',
                           'assets/brecho23.jpeg'
                         ],
-                            'Brechós de Elite',
+                            'Brechó de Elite',
                             '4,98',
                             'Tv. 14 de Março, 1304 - Umarizal',
                             'Seg. a Sab. - 09:00 às 18:00',
@@ -390,7 +394,7 @@ class TelaInicio extends StatelessWidget {
                           'assets/brecho22.jpeg',
                           'assets/brecho23.jpeg'
                         ],
-                            'Brechós de Elite',
+                            'Brechó de Elite',
                             '4,98',
                             '@brecho_elite',
                             '(91) 98337-5857',

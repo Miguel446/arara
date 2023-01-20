@@ -1,6 +1,6 @@
+import 'package:arara/enums/color_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:arara/enums/color_enum.dart';
 
 class TelaAvaliacoes extends StatelessWidget {
   const TelaAvaliacoes({super.key});
@@ -88,15 +88,20 @@ class TelaAvaliacoes extends StatelessWidget {
                 Expanded(
                   child: RichText(
                     text: const TextSpan(
-                      text:
-                          "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua....” ",
-                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-                      children: [TextSpan(text: 'Ler mais', style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500, color: Colors.grey,
-                        decoration: TextDecoration.underline,
-                      ))]
-                    ),
+                        text:
+                            "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua....” ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, color: Colors.black),
+                        children: [
+                          TextSpan(
+                              text: 'Ler mais',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.grey,
+                                decoration: TextDecoration.underline,
+                              ))
+                        ]),
                   ),
                 )
               ],

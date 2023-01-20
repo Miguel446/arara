@@ -89,7 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: Visibility(
         visible: _indiceAtual == 0,
         child: FloatingActionButton.extended(
-          onPressed: null, label: Row(
+          onPressed: () => {
+          }, label: Row(
           children: const [Text('Explore '), Icon(Icons.explore)],
         ),
         backgroundColor: const Color(0xffa071a0),),

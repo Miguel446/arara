@@ -1,4 +1,4 @@
-import 'package:ararav2/enums/color_enum.dart';
+import 'package:arara/enums/color_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -14,27 +14,24 @@ class TelaInicio extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(24.0),
-            child: GestureDetector(
-              onTap: () => {print('Hello World!')},
-              child: ImageSlideshow(
-                height: 200,
-                indicatorColor: ColorEnum.verde,
-                autoPlayInterval: 0,
-                children: <Widget>[
-                  Image.asset(
-                    listaImagens[0],
-                    fit: BoxFit.cover,
-                  ),
-                  Image.asset(
-                    listaImagens[1],
-                    fit: BoxFit.cover,
-                  ),
-                  Image.asset(
-                    listaImagens[2],
-                    fit: BoxFit.cover,
-                  ),
-                ],
-              ),
+            child: ImageSlideshow(
+              height: 200,
+              indicatorColor: ColorEnum.verde,
+              autoPlayInterval: 0,
+              children: <Widget>[
+                Image.asset(
+                  listaImagens[0],
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  listaImagens[1],
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  listaImagens[2],
+                  fit: BoxFit.cover,
+                ),
+              ],
             ),
           ),
           Container(
@@ -133,27 +130,24 @@ class TelaInicio extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(24.0),
-            child: GestureDetector(
-              onTap: () => {print('Hello World!')},
-              child: ImageSlideshow(
-                height: 200,
-                indicatorColor: ColorEnum.verde,
-                autoPlayInterval: 0,
-                children: <Widget>[
-                  Image.asset(
-                    listaImagens[0],
-                    fit: BoxFit.cover,
-                  ),
-                  Image.asset(
-                    listaImagens[1],
-                    fit: BoxFit.cover,
-                  ),
-                  Image.asset(
-                    listaImagens[2],
-                    fit: BoxFit.cover,
-                  ),
-                ],
-              ),
+            child: ImageSlideshow(
+              height: 200,
+              indicatorColor: ColorEnum.verde,
+              autoPlayInterval: 0,
+              children: <Widget>[
+                Image.asset(
+                  listaImagens[0],
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  listaImagens[1],
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  listaImagens[2],
+                  fit: BoxFit.cover,
+                ),
+              ],
             ),
           ),
           Container(

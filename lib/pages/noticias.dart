@@ -1,3 +1,4 @@
+import 'package:arara/ui/pages/article_tab_page.dart';
 import 'package:flutter/material.dart';
 
 import '../enums/color_enum.dart';
@@ -5,45 +6,6 @@ import '../ui/pages/news_tab_page.dart';
 
 class TelaNoticias extends StatelessWidget {
   const TelaNoticias({super.key});
-
-  Widget itemArtigo(String titulo, String fonte) {
-    return Container(
-      margin: const EdgeInsets.only(top: 24),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  titulo,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(fonte,
-                    style: const TextStyle(fontSize: 12, color: Colors.grey))
-              ],
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Icon(
-                Icons.chevron_right,
-                color: Color(0xffa071a0),
-                size: 30,
-              )
-            ],
-          )
-        ],
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,33 +71,13 @@ class TelaNoticias extends StatelessWidget {
               ),
               //TabBarView
               SizedBox(
-                height: 1200,
+                height: 800,
                 child: TabBarView(
                   physics: const BouncingScrollPhysics(),
                   children: <Widget>[
                     NewsTabPage(),
                     NewsTabPage(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(children: [
-                        itemArtigo('Moda, aparência e status social',
-                            '2018 | Brasil de Fato | Antônio Moura'),
-                        itemArtigo(
-                            'O brechó como estratégia para o estímulo de comportamentos sustentáveis',
-                            '2020 | LUME | Daniela Neumann'),
-                        itemArtigo(
-                            'Marcas de moda sustentável: critérios de sustentabilidade e ferramentas de comunicação',
-                            '2014 | Repositorium | Mariana Araújo'),
-                        itemArtigo(
-                            'Ser sustentável está na moda? O perfil do consumidor jovem carioca no mercado da moda sustentável',
-                            '2020 | IJBMKT | Veranise Debeux'),
-                        itemArtigo(
-                            'A arte como ferramenta de criatividade no design de moda sustentavel',
-                            '2011 | Repertorium | Célia Santos'),
-                        itemArtigo('Brechó como prática sustentável de consumo',
-                            '2020 | PKP | Agatha Necchi')
-                      ]),
-                    ),
+                    ArticleTabPage(),
                     NewsTabPage(),
                   ],
                 ),

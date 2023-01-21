@@ -1,6 +1,6 @@
-import 'package:arara/shared/palette.dart';
 import 'package:flutter/material.dart';
 
+import 'shared/palette.dart';
 import 'ui/pages/home_page.dart';
 
 void main() {

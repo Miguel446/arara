@@ -1,8 +1,10 @@
 import 'package:arara/enums/color_enum.dart';
+import 'package:arara/shared/palette.dart';
 import 'package:flutter/material.dart';
+
+import 'pages/avaliacoes.dart';
 import 'pages/inicio.dart';
 import 'pages/noticias.dart';
-import 'pages/avaliacoes.dart';
 import 'pages/perfil.dart';
 
 void main() {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Arara',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Palette.paletaRoxa,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage('Arara'),
@@ -39,10 +41,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   int _indiceAtual = 0;
   String textoBotao = "Explore ";
-  Icon iconeBotao = const Icon(Icons.explore);
+  Icon iconeBotao = const Icon(
+    Icons.explore,
+    color: Colors.white,
+  );
 
   final List<Widget> _telas = [
     const TelaInicio(),
@@ -54,12 +58,18 @@ class _MyHomePageState extends State<MyHomePage> {
   void onTabTapped(int index) {
     setState(() {
       _indiceAtual = index;
-      if(index == 2){
+      if (index == 2) {
         textoBotao = "Avaliar ";
-        iconeBotao = const Icon(Icons.reviews);
-      }else{
+        iconeBotao = const Icon(
+          Icons.reviews,
+          color: Colors.white,
+        );
+      } else {
         textoBotao = "Explore ";
-        iconeBotao = const Icon(Icons.explore);
+        iconeBotao = const Icon(
+          Icons.explore,
+          color: Colors.white,
+        );
       }
     });
   }
@@ -79,31 +89,30 @@ class _MyHomePageState extends State<MyHomePage> {
         iconSize: 28,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.search,),
-            label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.feed),
-              label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.reviews),
-              label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: ''
-          ),
+              icon: Icon(
+                Icons.search,
+              ),
+              label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.feed), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.reviews), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: ''),
         ],
       ),
       floatingActionButton: Visibility(
         visible: _indiceAtual == 0 || _indiceAtual == 2,
         child: FloatingActionButton.extended(
-          onPressed: () => {
-          }, label: Row(
-          children: [Text(textoBotao), iconeBotao],
+          onPressed: () => {},
+          label: Row(
+            children: [
+              Text(
+                textoBotao,
+                style: const TextStyle(color: Colors.white),
+              ),
+              iconeBotao
+            ],
+          ),
+          backgroundColor: ColorEnum.roxo,
         ),
-        backgroundColor: ColorEnum.roxo,),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

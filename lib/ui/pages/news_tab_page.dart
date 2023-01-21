@@ -32,6 +32,9 @@ class NewsTabPage extends StatelessWidget {
       titulo: 'Onde comprar roupa barata em Belém?',
       info: '04/01/2023 | 14:32 | Sebrae',
     ),
-    const SeeMoreItem()
+    const SeeMoreItem(
+      marginTop: 24,
+      marginBottom: 24,
+    )
   ];
 }

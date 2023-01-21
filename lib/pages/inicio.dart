@@ -1,7 +1,7 @@
-import 'package:arara/ui/pages/search_tab_page.dart';
 import 'package:flutter/material.dart';
 
 import '../enums/color_enum.dart';
+import '../ui/pages/search_tab_page.dart';
 
 class TelaInicio extends StatelessWidget {
   const TelaInicio({super.key});

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SeeMoreItem extends StatelessWidget {
-  const SeeMoreItem({super.key});
+  final double marginTop;
+  final double marginBottom;
+
+  const SeeMoreItem({super.key, this.marginTop = 0, this.marginBottom = 0});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 20),
-      child: Align(
+    return Padding(
+      padding: EdgeInsets.only(top: marginTop, bottom: marginBottom),
+      child: const Align(
         alignment: Alignment.center,
         child: Text(
           'Ver mais',

@@ -1,7 +1,7 @@
-import 'package:arara/ui/pages/article_tab_page.dart';
 import 'package:flutter/material.dart';
 
 import '../enums/color_enum.dart';
+import '../ui/pages/article_tab_page.dart';
 import '../ui/pages/news_tab_page.dart';
 
 class TelaNoticias extends StatelessWidget {

@@ -8,8 +8,8 @@ class SearchTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
+    return ListView(
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         const SizedBox(
           height: 20,

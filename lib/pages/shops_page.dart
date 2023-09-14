@@ -12,12 +12,7 @@ class ShopsPage extends StatelessWidget {
       length: 2,
       child: NestedScrollView(
         physics: const BouncingScrollPhysics(),
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return const [
-            SliverToBoxAdapter(child: SafeArea(child: SizedBox())),
-            HomeHeader(),
-          ];
-        },
+        headerSliverBuilder: (_, __) => const [HomeHeader()],
         body: const TabBarView(
           physics: BouncingScrollPhysics(),
           children: <Widget>[

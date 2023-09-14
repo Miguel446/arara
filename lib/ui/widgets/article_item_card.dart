@@ -33,9 +33,9 @@ class ArticleItemCard extends StatelessWidget {
               ],
             ),
           ),
-          Column(
+          const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children: [
               Icon(
                 Icons.chevron_right,
                 color: ColorEnum.roxo,

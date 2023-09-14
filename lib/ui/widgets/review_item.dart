@@ -54,8 +54,8 @@ class ReviewItem extends StatelessWidget {
           // Avaliacao
           Container(
             margin: const EdgeInsets.only(top: 10.0),
-            child: Row(
-              children: const <Widget>[
+            child: const Row(
+              children: [
                 Icon(
                   Icons.star,
                   color: ColorEnum.verde,
@@ -119,8 +119,8 @@ class ReviewItem extends StatelessWidget {
           // Autor
           Container(
             margin: const EdgeInsets.only(top: 10.0),
-            child: Row(
-              children: const <Widget>[
+            child: const Row(
+              children: [
                 Text(
                   'Luciana Valadares',
                   style: TextStyle(

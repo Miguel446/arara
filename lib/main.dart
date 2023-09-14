@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'shared/dependencies.dart';
 import 'shared/palette.dart';
 import 'ui/pages/home_page.dart';
 
 void main() {
+  registerDependencies();
+
   runApp(const MyApp());
 }
 

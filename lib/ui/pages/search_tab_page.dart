@@ -1,10 +1,32 @@
 import 'package:arara/ui/widgets/search_list_item_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-class SearchTabPage extends StatelessWidget {
-  final bool isOnline;
+import '../../shared/models/shop.dart';
+import '../../shared/repositories/shop_repository.dart';
 
-  const SearchTabPage(this.isOnline, {super.key});
+class SearchTabPage extends StatefulWidget {
+  final ShopType shopType;
+
+  const SearchTabPage(this.shopType, {super.key});
+
+  @override
+  State<SearchTabPage> createState() => _SearchTabPageState();
+}
+
+class _SearchTabPageState extends State<SearchTabPage> {
+  List<Shop> shops = [];
+  bool isLoading = false;
+
+  Future<void> getShops() async {
+    setState(() => isLoading = true);
+
+    try {
+      shops = await GetIt.I<ShopRepository>().getShops();
+    } finally {
+      setState(() => isLoading = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +36,7 @@ class SearchTabPage extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        ...cards(isOnline),
+        ...cards(widget.shopType == ShopType.virtual),
       ],
     );
   }

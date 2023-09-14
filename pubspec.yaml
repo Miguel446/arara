@@ -29,10 +29,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  diacritic: ^0.1.4
   flutter:
     sdk: flutter
-  material_design_icons_flutter: ^7.0.7296
   flutter_image_slideshow: ^0.1.6
+  material_design_icons_flutter: ^7.0.7296
 
 
   # The following adds the Cupertino Icons font to your application.

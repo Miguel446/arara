@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../ui/widgets/account_menu_item.dart';
 import '../ui/widgets/account_menu_title.dart';
 
-class TelaPerfil extends StatelessWidget {
-  const TelaPerfil({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {

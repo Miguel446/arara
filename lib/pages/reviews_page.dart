@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../ui/widgets/review_item.dart';
 import '../ui/widgets/see_more_item.dart';
 
-class TelaAvaliacoes extends StatelessWidget {
-  const TelaAvaliacoes({super.key});
+class ReviewsPage extends StatelessWidget {
+  const ReviewsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

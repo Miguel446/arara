@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../pages/avaliacoes.dart';
-import '../../pages/inicio.dart';
-import '../../pages/noticias.dart';
-import '../../pages/perfil.dart';
+import '../../pages/reviews_page.dart';
+import '../../pages/shops_page.dart';
+import '../../pages/news_page.dart';
+import '../../pages/profile_page.dart';
 
 class HomePageController extends ChangeNotifier {
   int currentPageIndex = 0;
@@ -11,10 +11,10 @@ class HomePageController extends ChangeNotifier {
   String buttonText = 'Explore ';
 
   final telas = <Widget>[
-    const TelaInicio(),
-    const TelaNoticias(),
-    const TelaAvaliacoes(),
-    const TelaPerfil()
+    const ShopsPage(),
+    const NewsPage(),
+    const ReviewsPage(),
+    const ProfilePage()
   ];
 
   bool get isButtonVisible => currentPageIndex == 0 || currentPageIndex == 2;

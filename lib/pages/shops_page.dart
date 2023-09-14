@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../ui/pages/search_tab_page.dart';
 import '../ui/widgets/home_header.dart';
 
-class TelaInicio extends StatelessWidget {
-  const TelaInicio({super.key});
+class ShopsPage extends StatelessWidget {
+  const ShopsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

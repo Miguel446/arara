@@ -4,8 +4,8 @@ import '../enums/color_enum.dart';
 import '../ui/pages/article_tab_page.dart';
 import '../ui/pages/news_tab_page.dart';
 
-class TelaNoticias extends StatelessWidget {
-  const TelaNoticias({super.key});
+class NewsPage extends StatelessWidget {
+  const NewsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

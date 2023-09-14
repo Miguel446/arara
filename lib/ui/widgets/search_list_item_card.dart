@@ -118,7 +118,7 @@ class SearchListItemCard extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 if (isOnline)
-                  const Icon(
+                  Icon(
                     MdiIcons.instagram,
                     size: 14,
                     color: Colors.grey,

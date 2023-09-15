@@ -37,16 +37,23 @@ class _SearchTabPageState extends State<SearchTabPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
-      children: isLoading
-          ? List.filled(3, const ShopCardSkeleton())
-          : shops
-              .map(
-                (shop) => ShopCard(shop),
-              )
-              .toList(),
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: isLoading
+          ? ListView(
+              key: UniqueKey(),
+              padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
+              children: List.filled(3, const ShopCardSkeleton()),
+            )
+          : ListView(
+              key: UniqueKey(),
+              padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
+              children: shops
+                  .map(
+                    (shop) => ShopCard(shop),
+                  )
+                  .toList(),
+            ),
     );
   }
 }

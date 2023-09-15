@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 import '../../shared/models/shop.dart';
 import '../../shared/providers/shop_search_name_provider.dart';
 import '../../shared/repositories/shop_repository.dart';
+import '../../shared/utils/debouncer.dart';
 import '../widgets/loading/shop_card_skeleton.dart';
 import '../widgets/shop_card.dart';
 
@@ -20,6 +21,8 @@ class ShopCardTab extends ConsumerStatefulWidget {
 class _ShopCardTabState extends ConsumerState<ShopCardTab> {
   List<Shop> shops = [];
   bool isLoading = false;
+
+  late final debouncedGetShops = Debouncer(milliseconds: 500, action: getShops);
 
   Future<void> getShops() async {
     setState(() => isLoading = true);
@@ -44,7 +47,7 @@ class _ShopCardTabState extends ConsumerState<ShopCardTab> {
 
   @override
   Widget build(BuildContext context) {
-    ref.listen(shopSearchNameProvider, (_, __) => getShops());
+    ref.listen(shopSearchNameProvider, (_, __) => debouncedGetShops.run());
 
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 300),

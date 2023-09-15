@@ -1,6 +1,7 @@
-import 'package:arara/shared/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../config/theme.dart';
 
 class Skeleton extends StatelessWidget {
   final double? width;
@@ -28,8 +29,8 @@ class Skeleton extends StatelessWidget {
     return ClipRRect(
       borderRadius: borderRadius,
       child: Shimmer.fromColors(
-        baseColor: Palette.paletaRoxa[500]!,
-        highlightColor: Palette.paletaRoxa[300]!,
+        baseColor: AppTheme.primary[500]!,
+        highlightColor: AppTheme.primary[300]!,
         child: Container(
           width: width,
           height: height,

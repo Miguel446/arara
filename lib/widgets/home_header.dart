@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../enums/color_enum.dart';
 import '../../shared/providers/shop_search_name_provider.dart';
+import '../config/theme.dart';
 
 class HomeHeader extends ConsumerWidget {
   const HomeHeader({super.key});
@@ -55,7 +55,7 @@ class HomeHeader extends ConsumerWidget {
                     indicator: UnderlineTabIndicator(
                       insets: EdgeInsets.symmetric(horizontal: 70),
                       borderSide: BorderSide(
-                        color: ColorEnum.roxo,
+                        color: AppTheme.primary,
                         width: 3,
                         style: BorderStyle.solid,
                       ),

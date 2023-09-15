@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../enums/color_enum.dart';
 import '../../shared/models/shop.dart';
+import '../config/theme.dart';
 
 class ShopCard extends StatelessWidget {
   final Shop shop;
@@ -24,7 +24,7 @@ class ShopCard extends StatelessWidget {
                 height: 200,
                 indicatorRadius: 4,
                 indicatorBackgroundColor: Colors.white70,
-                indicatorColor: ColorEnum.verde,
+                indicatorColor: AppTheme.secondary,
                 autoPlayInterval: 0,
                 children: shop.imageUrls!
                     .map(
@@ -51,7 +51,6 @@ class ShopCard extends StatelessWidget {
                 if (shop.averageRating != null) ...[
                   const Icon(
                     Icons.star,
-                    color: ColorEnum.verde,
                     size: 17,
                   ),
                   Text(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/color_enum.dart';
+import '../config/theme.dart';
 import '../controllers/home_page_controller.dart';
 import '../widgets/home_bottom_tab_item.dart';
 
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: Visibility(
         visible: controller.isButtonVisible,
         child: FloatingActionButton.extended(
-          backgroundColor: ColorEnum.roxo,
+          backgroundColor: AppTheme.primary,
           onPressed: () {},
           label: Row(
             children: [

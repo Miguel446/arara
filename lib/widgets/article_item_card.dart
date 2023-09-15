@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/color_enum.dart';
-
 class ArticleItemCard extends StatelessWidget {
   final String titulo;
   final String fonte;
@@ -38,7 +36,6 @@ class ArticleItemCard extends StatelessWidget {
             children: [
               Icon(
                 Icons.chevron_right,
-                color: ColorEnum.roxo,
                 size: 30,
               )
             ],

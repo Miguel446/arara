@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
-import '../../enums/color_enum.dart';
+import '../config/theme.dart';
 
 class ReviewItem extends StatelessWidget {
   final String title;
@@ -14,7 +14,7 @@ class ReviewItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 24),
       child: Column(
-        children: <Widget>[
+        children: [
           // Imagem
           ClipRRect(
             borderRadius: BorderRadius.circular(24.0),
@@ -22,7 +22,7 @@ class ReviewItem extends StatelessWidget {
               height: 200,
               indicatorRadius: 4,
               indicatorBackgroundColor: Colors.white70,
-              indicatorColor: ColorEnum.verde,
+              indicatorColor: AppTheme.secondary,
               autoPlayInterval: 0,
               children: <Widget>[
                 Image.asset(
@@ -58,27 +58,22 @@ class ReviewItem extends StatelessWidget {
               children: [
                 Icon(
                   Icons.star,
-                  color: ColorEnum.verde,
                   size: 17,
                 ),
                 Icon(
                   Icons.star,
-                  color: ColorEnum.verde,
                   size: 17,
                 ),
                 Icon(
                   Icons.star,
-                  color: ColorEnum.verde,
                   size: 17,
                 ),
                 Icon(
                   Icons.star,
-                  color: ColorEnum.verde,
                   size: 17,
                 ),
                 Icon(
                   Icons.star,
-                  color: ColorEnum.verde,
                   size: 17,
                 ),
                 Text(

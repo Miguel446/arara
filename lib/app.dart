@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'config/theme.dart';
 import 'pages/home_page.dart';
-import 'shared/palette.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -13,10 +13,7 @@ class App extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Arara',
-        theme: ThemeData(
-          primarySwatch: Palette.paletaRoxa,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+        theme: AppTheme.themeData,
         home: const MyHomePage(),
       ),
     );

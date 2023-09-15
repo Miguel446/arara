@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/color_enum.dart';
+import '../config/theme.dart';
 import '../widgets/tabs/article_card_tab.dart';
 import '../widgets/tabs/news_card_tab.dart';
 
@@ -44,11 +44,13 @@ class NewsPage extends StatelessWidget {
                           labelColor: Colors.black,
                           indicatorSize: TabBarIndicatorSize.tab,
                           indicator: UnderlineTabIndicator(
-                              insets: EdgeInsets.symmetric(horizontal: 30),
-                              borderSide: BorderSide(
-                                  color: ColorEnum.roxo,
-                                  width: 3,
-                                  style: BorderStyle.solid)),
+                            insets: EdgeInsets.symmetric(horizontal: 30),
+                            borderSide: BorderSide(
+                              color: AppTheme.primary,
+                              width: 3,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
                           tabs: [
                             Tab(
                               text: 'Todas',

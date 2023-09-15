@@ -1,6 +1,5 @@
+import 'package:arara/config/theme.dart';
 import 'package:flutter/material.dart';
-
-import '../../enums/color_enum.dart';
 
 class AccountMenuItem extends StatelessWidget {
   final String title;
@@ -23,7 +22,6 @@ class AccountMenuItem extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 10),
                     child: Icon(
                       iconData,
-                      color: ColorEnum.verde,
                       size: 22,
                     ),
                   ),
@@ -37,7 +35,7 @@ class AccountMenuItem extends StatelessWidget {
               ),
               const Icon(
                 Icons.chevron_right,
-                color: ColorEnum.roxo,
+                color: AppTheme.primary,
               )
             ],
           ),

@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../shared/models/shop.dart';
 import '../../shared/repositories/shop_repository.dart';
+import '../widgets/loading/shop_card_skeleton.dart';
 import '../widgets/shop_card.dart';
 
 class SearchTabPage extends StatefulWidget {
@@ -39,11 +40,13 @@ class _SearchTabPageState extends State<SearchTabPage> {
     return ListView(
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
-      children: shops
-          .map(
-            (shop) => ShopCard(shop),
-          )
-          .toList(),
+      children: isLoading
+          ? List.filled(3, const ShopCardSkeleton())
+          : shops
+              .map(
+                (shop) => ShopCard(shop),
+              )
+              .toList(),
     );
   }
 }

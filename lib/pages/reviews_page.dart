@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../ui/widgets/review_item.dart';
-import '../ui/widgets/see_more_item.dart';
+import '../widgets/review_item.dart';
+import '../widgets/see_more_item.dart';
 
 class ReviewsPage extends StatelessWidget {
   const ReviewsPage({super.key});

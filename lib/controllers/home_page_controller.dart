@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../pages/reviews_page.dart';
-import '../../pages/shops_page.dart';
-import '../../pages/news_page.dart';
-import '../../pages/profile_page.dart';
+import '../pages/reviews_page.dart';
+import '../pages/shops_page.dart';
+import '../pages/news_page.dart';
+import '../pages/profile_page.dart';
 
 class HomePageController extends ChangeNotifier {
   int currentPageIndex = 0;

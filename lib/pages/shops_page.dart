@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../shared/models/shop.dart';
-import '../ui/widgets/home_header.dart';
-import '../ui/widgets/tabs/shop_card_tab.dart';
+import '../../shared/models/shop.dart';
+import '../widgets/home_header.dart';
+import '../widgets/tabs/shop_card_tab.dart';
 
 class ShopsPage extends StatelessWidget {
   const ShopsPage({super.key});

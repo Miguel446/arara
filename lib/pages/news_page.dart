@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../enums/color_enum.dart';
-import '../ui/widgets/tabs/article_card_tab.dart';
-import '../ui/widgets/tabs/news_card_tab.dart';
+import '../../enums/color_enum.dart';
+import '../widgets/tabs/article_card_tab.dart';
+import '../widgets/tabs/news_card_tab.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({super.key});

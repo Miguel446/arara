@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'shared/dependencies.dart';
 import 'shared/palette.dart';
-import 'ui/pages/home_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
   registerDependencies();

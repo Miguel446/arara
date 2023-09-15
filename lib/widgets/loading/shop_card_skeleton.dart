@@ -1,4 +1,4 @@
-import 'package:arara/ui/widgets/loading/skeleton.dart';
+import 'package:arara/widgets/loading/skeleton.dart';
 import 'package:flutter/material.dart';
 
 class ShopCardSkeleton extends StatelessWidget {

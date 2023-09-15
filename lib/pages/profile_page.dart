@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../ui/widgets/account_menu_item.dart';
-import '../ui/widgets/account_menu_title.dart';
+import '../widgets/account_menu_item.dart';
+import '../widgets/account_menu_title.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

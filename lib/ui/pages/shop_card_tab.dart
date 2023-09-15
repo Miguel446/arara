@@ -1,29 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../shared/models/shop.dart';
+import '../../shared/providers/shop_search_name_provider.dart';
 import '../../shared/repositories/shop_repository.dart';
 import '../widgets/loading/shop_card_skeleton.dart';
 import '../widgets/shop_card.dart';
 
-class ShopCardTab extends StatefulWidget {
+class ShopCardTab extends ConsumerStatefulWidget {
   final ShopType shopType;
 
   const ShopCardTab(this.shopType, {super.key});
 
   @override
-  State<ShopCardTab> createState() => _ShopCardTabState();
+  ConsumerState<ShopCardTab> createState() => _ShopCardTabState();
 }
 
-class _ShopCardTabState extends State<ShopCardTab> {
+class _ShopCardTabState extends ConsumerState<ShopCardTab> {
   List<Shop> shops = [];
   bool isLoading = false;
 
   Future<void> getShops() async {
     setState(() => isLoading = true);
 
+    final searchName = ref.read(shopSearchNameProvider);
+
     try {
-      shops = await GetIt.I<ShopRepository>().getShops(type: widget.shopType);
+      shops = await GetIt.I<ShopRepository>().getShops(
+        type: widget.shopType,
+        name: searchName,
+      );
     } finally {
       setState(() => isLoading = false);
     }
@@ -37,6 +44,8 @@ class _ShopCardTabState extends State<ShopCardTab> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(shopSearchNameProvider, (_, __) => getShops());
+
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 300),
       child: isLoading

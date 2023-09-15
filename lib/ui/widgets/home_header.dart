@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../enums/color_enum.dart';
+import '../../shared/providers/shop_search_name_provider.dart';
 
-class HomeHeader extends StatelessWidget {
+class HomeHeader extends ConsumerWidget {
   const HomeHeader({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SliverAppBar(
       pinned: false,
       collapsedHeight: 217.0,
@@ -21,20 +23,18 @@ class HomeHeader extends StatelessWidget {
                 image: AssetImage('assets/icone.png'),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.horizontal(
-                      left: Radius.circular(24),
-                      right: Radius.circular(24),
-                    ),
+                    borderRadius: BorderRadius.circular(24),
                   ),
-                  prefixIcon: Icon(Icons.search),
-                  suffixIcon: Icon(Icons.filter_alt),
+                  suffixIcon: const Icon(Icons.search),
                   hintText: 'Procure por bazares e brechós',
                 ),
+                onChanged: (value) =>
+                    ref.read(shopSearchNameProvider.notifier).state = value,
               ),
             ),
             const SizedBox(height: 10),

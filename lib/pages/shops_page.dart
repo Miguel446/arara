@@ -1,7 +1,7 @@
-import 'package:arara/shared/models/shop.dart';
 import 'package:flutter/material.dart';
 
-import '../ui/pages/search_tab_page.dart';
+import '../shared/models/shop.dart';
+import '../ui/pages/shop_card_tab.dart';
 import '../ui/widgets/home_header.dart';
 
 class ShopsPage extends StatelessWidget {
@@ -17,8 +17,8 @@ class ShopsPage extends StatelessWidget {
         body: const TabBarView(
           physics: BouncingScrollPhysics(),
           children: <Widget>[
-            SearchTabPage(ShopType.physical),
-            SearchTabPage(ShopType.virtual),
+            ShopCardTab(ShopType.physical),
+            ShopCardTab(ShopType.virtual),
           ],
         ),
       ),

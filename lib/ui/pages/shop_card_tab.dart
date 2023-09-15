@@ -6,16 +6,16 @@ import '../../shared/repositories/shop_repository.dart';
 import '../widgets/loading/shop_card_skeleton.dart';
 import '../widgets/shop_card.dart';
 
-class SearchTabPage extends StatefulWidget {
+class ShopCardTab extends StatefulWidget {
   final ShopType shopType;
 
-  const SearchTabPage(this.shopType, {super.key});
+  const ShopCardTab(this.shopType, {super.key});
 
   @override
-  State<SearchTabPage> createState() => _SearchTabPageState();
+  State<ShopCardTab> createState() => _ShopCardTabState();
 }
 
-class _SearchTabPageState extends State<SearchTabPage> {
+class _ShopCardTabState extends State<ShopCardTab> {
   List<Shop> shops = [];
   bool isLoading = false;
 

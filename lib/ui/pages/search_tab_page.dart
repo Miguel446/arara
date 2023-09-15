@@ -38,6 +38,7 @@ class _SearchTabPageState extends State<SearchTabPage> {
   Widget build(BuildContext context) {
     return ListView(
       physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
       children: shops
           .map(
             (shop) => ShopCard(shop),

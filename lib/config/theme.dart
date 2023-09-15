@@ -19,6 +19,7 @@ class AppTheme {
   static const secondary = Color(0xFF75A760);
 
   static get themeData => ThemeData(
+        fontFamily: 'Inter',
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         iconTheme: const IconThemeData(

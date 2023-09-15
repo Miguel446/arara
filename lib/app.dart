@@ -14,7 +14,7 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Arara',
         theme: AppTheme.themeData,
-        home: const MyHomePage(),
+        home: const HomePage(),
       ),
     );
   }

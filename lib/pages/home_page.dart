@@ -1,37 +1,57 @@
 import 'package:flutter/material.dart';
 
 import '../config/theme.dart';
-import '../controllers/home_page_controller.dart';
 import '../widgets/home_bottom_tab_item.dart';
+import 'news_page.dart';
+import 'profile_page.dart';
+import 'reviews_page.dart';
+import 'shops_page.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return _MyHomePageState();
+    return _HomePageState();
   }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final controller = HomePageController();
+class _HomePageState extends State<HomePage> {
+  int currentPageIndex = 0;
+  IconData buttonIcon = Icons.explore;
+  String buttonText = 'Explore ';
 
-  @override
-  void initState() {
-    super.initState();
-    controller.addListener(() {
-      setState(() {});
+  final pages = [
+    const ShopsPage(),
+    const NewsPage(),
+    const ReviewsPage(),
+    const ProfilePage()
+  ];
+
+  bool get isButtonVisible => [0, 2].contains(currentPageIndex);
+  Widget get currentTab => pages.elementAt(currentPageIndex);
+
+  void changeTab(int index) {
+    setState(() {
+      currentPageIndex = index;
+      if (index == 2) {
+        buttonText = "Avaliar ";
+        buttonIcon = Icons.reviews;
+      } else {
+        buttonText = "Explore ";
+        buttonIcon = Icons.explore;
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: controller.currentTab,
+      body: currentTab,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: controller.currentPageIndex,
-        onTap: controller.changeTab,
+        currentIndex: currentPageIndex,
+        onTap: changeTab,
         unselectedItemColor: const Color(0x801E1E1E),
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -44,18 +64,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: Visibility(
-        visible: controller.isButtonVisible,
+        visible: isButtonVisible,
         child: FloatingActionButton.extended(
           backgroundColor: AppTheme.primary,
           onPressed: () {},
           label: Row(
             children: [
               Text(
-                controller.buttonText,
+                buttonText,
                 style: const TextStyle(color: Colors.white),
               ),
               Icon(
-                controller.buttonIcon,
+                buttonIcon,
                 color: Colors.white,
               ),
             ],

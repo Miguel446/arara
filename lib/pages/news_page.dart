@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../enums/color_enum.dart';
-import '../ui/pages/article_tab_page.dart';
-import '../ui/pages/news_tab_page.dart';
+import '../ui/widgets/tabs/article_card_tab.dart';
+import '../ui/widgets/tabs/news_card_tab.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({super.key});
@@ -75,10 +75,10 @@ class NewsPage extends StatelessWidget {
                 child: TabBarView(
                   physics: const BouncingScrollPhysics(),
                   children: <Widget>[
-                    NewsTabPage(),
-                    NewsTabPage(),
-                    ArticleTabPage(),
-                    NewsTabPage(),
+                    NewsCardTab(),
+                    NewsCardTab(),
+                    ArticleCardTab(),
+                    NewsCardTab(),
                   ],
                 ),
               )

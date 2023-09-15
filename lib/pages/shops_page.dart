@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../shared/models/shop.dart';
-import '../ui/pages/shop_card_tab.dart';
 import '../ui/widgets/home_header.dart';
+import '../ui/widgets/tabs/shop_card_tab.dart';
 
 class ShopsPage extends StatelessWidget {
   const ShopsPage({super.key});
@@ -16,7 +16,7 @@ class ShopsPage extends StatelessWidget {
         headerSliverBuilder: (_, __) => const [HomeHeader()],
         body: const TabBarView(
           physics: BouncingScrollPhysics(),
-          children: <Widget>[
+          children: [
             ShopCardTab(ShopType.physical),
             ShopCardTab(ShopType.virtual),
           ],

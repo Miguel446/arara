@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../shared/models/shop.dart';
-import '../../shared/providers/shop_search_name_provider.dart';
-import '../../shared/repositories/shop_repository.dart';
-import '../../shared/utils/debouncer.dart';
-import '../widgets/loading/shop_card_skeleton.dart';
-import '../widgets/shop_card.dart';
+import '../../../shared/models/shop.dart';
+import '../../../shared/providers/shop_search_name_provider.dart';
+import '../../../shared/repositories/shop_repository.dart';
+import '../../../shared/utils/debouncer.dart';
+import '../loading/shop_card_skeleton.dart';
+import '../shop_card.dart';
 
 class ShopCardTab extends ConsumerStatefulWidget {
   final ShopType shopType;

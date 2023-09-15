@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/article_item_card.dart';
+import '../article_item_card.dart';
 
-class ArticleTabPage extends StatelessWidget {
-  ArticleTabPage({super.key});
+class ArticleCardTab extends StatelessWidget {
+  ArticleCardTab({super.key});
 
   @override
   Widget build(BuildContext context) {

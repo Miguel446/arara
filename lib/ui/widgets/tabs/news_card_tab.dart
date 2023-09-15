@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/news_item_card.dart';
-import '../widgets/see_more_item.dart';
+import '../news_item_card.dart';
+import '../see_more_item.dart';
 
-class NewsTabPage extends StatelessWidget {
-  NewsTabPage({super.key});
+class NewsCardTab extends StatelessWidget {
+  NewsCardTab({super.key});
 
   @override
   Widget build(BuildContext context) {

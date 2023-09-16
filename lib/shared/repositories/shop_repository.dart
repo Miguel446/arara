@@ -25,6 +25,7 @@ class ShopRepository {
 
 const List<Shop> mockPhysicalShops = [
   Shop(
+    id: '1',
     name: 'Pinguinho Brechó Space',
     type: ShopType.physical,
     address: 'Rua Domingos Marreiros, 727 - Umarizal',
@@ -38,6 +39,7 @@ const List<Shop> mockPhysicalShops = [
     ],
   ),
   Shop(
+    id: '2',
     name: 'Brechó de Elite',
     type: ShopType.physical,
     address: 'Tv. 14 de Março, 1304 - Umarizal',
@@ -50,6 +52,7 @@ const List<Shop> mockPhysicalShops = [
     ],
   ),
   Shop(
+    id: '3',
     name: 'Brechó Stylus',
     type: ShopType.physical,
     address: 'Tv. Padre Eutíquio, 218 - Campina',
@@ -67,6 +70,7 @@ const List<Shop> mockPhysicalShops = [
 
 const List<Shop> mockVirtualShops = [
   Shop(
+    id: '4',
     name: 'Pinguinho Brechó Space',
     type: ShopType.virtual,
     instagram: 'pinguinho_brecho_space',
@@ -78,6 +82,7 @@ const List<Shop> mockVirtualShops = [
     ],
   ),
   Shop(
+    id: '5',
     name: 'Brechó de Elite',
     type: ShopType.virtual,
     instagram: 'brecho_elite',
@@ -92,6 +97,7 @@ const List<Shop> mockVirtualShops = [
     ],
   ),
   Shop(
+    id: '6',
     name: 'Brechó Stylus',
     type: ShopType.virtual,
     instagram: 'stylus_brecho',

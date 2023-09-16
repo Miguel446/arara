@@ -1,4 +1,5 @@
 class Shop {
+  final String id;
   final String name;
   final ShopType type;
   final String? instagram;
@@ -12,6 +13,7 @@ class Shop {
   // final List<Review> reviews;
 
   const Shop({
+    required this.id,
     required this.name,
     required this.type,
     this.instagram,

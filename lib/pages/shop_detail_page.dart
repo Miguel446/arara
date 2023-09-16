@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/logo_app_bar.dart';
+
 class ShopDetailPage extends StatelessWidget {
   const ShopDetailPage(this.shopId, {super.key});
 
@@ -9,6 +11,8 @@ class ShopDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: const LogoAppBar(),
+    );
   }
 }

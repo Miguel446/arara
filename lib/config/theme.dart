@@ -22,6 +22,15 @@ class AppTheme {
         fontFamily: 'Inter',
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          iconTheme: IconThemeData(
+            color: primary,
+          ),
+        ),
         iconTheme: const IconThemeData(
           color: secondary,
         ),

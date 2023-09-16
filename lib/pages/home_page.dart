@@ -10,6 +10,8 @@ import 'shops_page.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  static const path = '/';
+
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();

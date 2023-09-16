@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'config/router.dart';
 import 'config/theme.dart';
-import 'pages/home_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -10,11 +10,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Arara',
         theme: AppTheme.themeData,
-        home: const HomePage(),
+        routerConfig: router,
       ),
     );
   }

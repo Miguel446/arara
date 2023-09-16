@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppTheme {
+abstract class AppTheme {
   static const primary = MaterialColor(
     0xFFA071A0,
     <int, Color>{
@@ -18,6 +18,7 @@ class AppTheme {
 
   static const secondary = Color(0xFF75A760);
 
+  static const black600 = Color(0xFF747474);
   static const black800 = Color(0xFF414141);
 
   static const pagePadding = EdgeInsets.fromLTRB(20, 0, 20, 50);

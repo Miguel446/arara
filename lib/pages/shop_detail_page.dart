@@ -93,6 +93,8 @@ class _ShopDetailPageState extends State<ShopDetailPage> {
                     padding: EdgeInsets.symmetric(vertical: 24),
                     child: Divider(),
                   ),
+                  if (shop!.perks?.isNotEmpty == true)
+                    ...shop!.perks!.map((perk) => _PerkTile(perk)).toList(),
                 ],
               ),
       ),
@@ -115,6 +117,43 @@ class _IconText extends StatelessWidget {
           Icon(icon, size: 17),
           const SizedBox(width: 3),
           Text(text, style: Theme.of(context).textTheme.bodyMedium),
+        ],
+      ),
+    );
+  }
+}
+
+class _PerkTile extends StatelessWidget {
+  const _PerkTile(this.perk);
+
+  final ShopPerk perk;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 24),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(perk.icon),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  perk.title,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                Text(
+                  perk.description,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: AppTheme.black600,
+                      ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

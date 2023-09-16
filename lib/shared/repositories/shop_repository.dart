@@ -48,6 +48,7 @@ const List<Shop> mockPhysicalShops = [
       'assets/brecho12.jpeg',
       'assets/brecho13.jpeg'
     ],
+    perks: ShopPerk.values,
   ),
   Shop(
     id: '2',
@@ -61,6 +62,7 @@ const List<Shop> mockPhysicalShops = [
       'assets/brecho22.jpeg',
       'assets/brecho23.jpeg'
     ],
+    perks: [ShopPerk.airConditioning],
   ),
   Shop(
     id: '3',
@@ -76,6 +78,7 @@ const List<Shop> mockPhysicalShops = [
       'assets/brecho32.jpeg',
       'assets/brecho33.jpeg'
     ],
+    perks: ShopPerk.values,
   )
 ];
 
@@ -91,6 +94,7 @@ const List<Shop> mockVirtualShops = [
       'assets/brecho12.jpeg',
       'assets/brecho13.jpeg'
     ],
+    perks: [ShopPerk.newClothes],
   ),
   Shop(
     id: '5',
@@ -119,5 +123,6 @@ const List<Shop> mockVirtualShops = [
       'assets/brecho32.jpeg',
       'assets/brecho33.jpeg'
     ],
+    perks: [ShopPerk.newClothes],
   )
 ];

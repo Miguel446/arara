@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../config/theme.dart';
+import '../widgets/app_logo.dart';
 import '../widgets/tabs/article_card_tab.dart';
 import '../widgets/tabs/news_card_tab.dart';
 
@@ -17,19 +18,15 @@ class NewsPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              // Logo
-              Container(
-                  margin: const EdgeInsets.only(top: 10, bottom: 0),
-                  child: const Image(
-                    height: 80,
-                    image: AssetImage('assets/icone.png'),
-                  )),
+            children: [
+              const AppLogo(
+                padding: EdgeInsets.only(top: 10),
+              ),
               //TabBar
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     Stack(
                       children: [
                         Container(

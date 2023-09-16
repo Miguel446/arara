@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../shared/providers/shop_search_name_provider.dart';
 import '../config/theme.dart';
+import 'app_logo.dart';
 
 class HomeHeader extends ConsumerWidget {
   const HomeHeader({super.key});
@@ -16,12 +17,8 @@ class HomeHeader extends ConsumerWidget {
       flexibleSpace: SafeArea(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0),
-              child: Image(
-                height: 80,
-                image: AssetImage('assets/icone.png'),
-              ),
+            const AppLogo(
+              padding: EdgeInsets.symmetric(vertical: 10),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),

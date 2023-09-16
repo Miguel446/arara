@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app_logo.dart';
+
 class LogoAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LogoAppBar({
     super.key,
@@ -16,7 +18,7 @@ class LogoAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Image.asset('assets/icone.png', height: 80),
+      title: const AppLogo(),
       centerTitle: true,
       elevation: 0,
       automaticallyImplyLeading: true,

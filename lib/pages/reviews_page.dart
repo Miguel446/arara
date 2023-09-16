@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/app_logo.dart';
 import '../widgets/review_item.dart';
 import '../widgets/see_more_item.dart';
 
@@ -8,21 +9,17 @@ class ReviewsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+    return const SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 10, bottom: 10),
-                    child: const Image(
-                      height: 80,
-                      image: AssetImage('assets/icone.png'),
-                    )),
-                const Align(
+                AppLogo(
+                  padding: EdgeInsets.only(top: 10),
+                ),
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Avaliações',
@@ -32,24 +29,24 @@ class ReviewsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Divider(
+                Divider(
                   thickness: 1,
                   color: Colors.grey,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-                const ReviewItem(imgPathList: [
+                ReviewItem(imgPathList: [
                   'assets/brecho3.png',
                   'assets/brecho32.jpeg',
                   'assets/brecho33.jpeg'
                 ], title: 'Brechó Stylus'),
-                const ReviewItem(imgPathList: [
+                ReviewItem(imgPathList: [
                   'assets/brecho2.png',
                   'assets/brecho22.jpeg',
                   'assets/brecho23.jpeg'
                 ], title: 'Brechó de Elite'),
-                const SeeMoreItem(
+                SeeMoreItem(
                   marginBottom: 100,
                 ),
               ],

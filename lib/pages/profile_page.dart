@@ -2,67 +2,60 @@ import 'package:flutter/material.dart';
 
 import '../widgets/account_menu_item.dart';
 import '../widgets/account_menu_title.dart';
+import '../widgets/app_logo.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+    return const SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                // Logo
-                Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 10, bottom: 10),
-                    child: const Image(
-                      height: 80,
-                      image: AssetImage('assets/icone.png'),
-                    )),
+                AppLogo(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                ),
 
                 // Meus dados
-                const AccountMenuTitle(title: 'Meus dados'),
-                const AccountMenuItem(
+                AccountMenuTitle(title: 'Meus dados'),
+                AccountMenuItem(
                     title: 'Perfil', iconData: Icons.account_circle),
-                const AccountMenuItem(
-                    title: 'Alterar senha', iconData: Icons.key),
-                const AccountMenuItem(
-                    title: 'Favoritos', iconData: Icons.favorite),
-                const SizedBox(
+                AccountMenuItem(title: 'Alterar senha', iconData: Icons.key),
+                AccountMenuItem(title: 'Favoritos', iconData: Icons.favorite),
+                SizedBox(
                   height: 20,
                 ),
 
                 // Configuracoes da conta
-                const AccountMenuTitle(title: 'Configurações da conta'),
-                const AccountMenuItem(
+                AccountMenuTitle(title: 'Configurações da conta'),
+                AccountMenuItem(
                     title: 'Acessibilidade',
                     iconData: Icons.settings_accessibility),
-                const AccountMenuItem(
+                AccountMenuItem(
                     title: 'Notificações', iconData: Icons.notifications),
-                const AccountMenuItem(
+                AccountMenuItem(
                     title: 'Encerrar conta', iconData: Icons.warning),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
 
                 // Suporte
-                const AccountMenuTitle(title: 'Suporte'),
-                const AccountMenuItem(
+                AccountMenuTitle(title: 'Suporte'),
+                AccountMenuItem(
                     title: 'Tutorial rápido', iconData: Icons.support),
-                const AccountMenuItem(
+                AccountMenuItem(
                     title: 'Fale conosco', iconData: Icons.support_agent),
-                const AccountMenuItem(
-                    title: 'Sobre o Arara', iconData: Icons.info),
-                const SizedBox(
+                AccountMenuItem(title: 'Sobre o Arara', iconData: Icons.info),
+                SizedBox(
                   height: 24,
                 ),
 
                 // Sair da conta
-                const Align(
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Sair da conta',
@@ -72,7 +65,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 24,
                 )
               ],

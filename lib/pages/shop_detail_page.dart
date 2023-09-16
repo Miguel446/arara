@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:get_it/get_it.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../config/theme.dart';
 import '../shared/extensions.dart';
 import '../shared/repositories/shop_repository.dart';
+import '../widgets/image_carousel.dart';
 import '../widgets/logo_app_bar.dart';
 
 class ShopDetailPage extends StatefulWidget {
@@ -55,24 +55,7 @@ class _ShopDetailPageState extends State<ShopDetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   if (shop!.imageUrls?.isNotEmpty == true)
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(24.0),
-                      child: ImageSlideshow(
-                        height: 200,
-                        indicatorRadius: 4,
-                        indicatorBackgroundColor: Colors.white70,
-                        indicatorColor: AppTheme.secondary,
-                        autoPlayInterval: 0,
-                        children: shop!.imageUrls!
-                            .map(
-                              (url) => Image.asset(
-                                url,
-                                fit: BoxFit.cover,
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ),
+                    ImageCarousel(shop!.imageUrls!),
                   Padding(
                     padding: const EdgeInsets.only(top: 16, bottom: 8),
                     child: Text(

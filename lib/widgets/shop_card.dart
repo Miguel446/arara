@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../shared/models/shop.dart';
-import '../config/theme.dart';
 import '../pages/shop_detail_page.dart';
 import '../shared/extensions.dart';
+import 'image_carousel.dart';
 
 class ShopCard extends StatelessWidget {
   final Shop shop;
@@ -26,24 +25,7 @@ class ShopCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (shop.imageUrls?.isNotEmpty == true)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(24.0),
-                child: ImageSlideshow(
-                  height: 200,
-                  indicatorRadius: 4,
-                  indicatorBackgroundColor: Colors.white70,
-                  indicatorColor: AppTheme.secondary,
-                  autoPlayInterval: 0,
-                  children: shop.imageUrls!
-                      .map(
-                        (url) => Image.asset(
-                          url,
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
+              ImageCarousel(shop.imageUrls!),
             Container(
               margin: const EdgeInsets.only(top: 20.0),
               child: Row(

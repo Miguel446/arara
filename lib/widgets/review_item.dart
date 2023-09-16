@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
-import '../config/theme.dart';
+import 'image_carousel.dart';
 
 class ReviewItem extends StatelessWidget {
   final String title;
@@ -15,31 +14,7 @@ class ReviewItem extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 24),
       child: Column(
         children: [
-          // Imagem
-          ClipRRect(
-            borderRadius: BorderRadius.circular(24.0),
-            child: ImageSlideshow(
-              height: 200,
-              indicatorRadius: 4,
-              indicatorBackgroundColor: Colors.white70,
-              indicatorColor: AppTheme.secondary,
-              autoPlayInterval: 0,
-              children: <Widget>[
-                Image.asset(
-                  imgPathList.elementAt(0),
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  imgPathList.elementAt(1),
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  imgPathList.elementAt(2),
-                  fit: BoxFit.cover,
-                ),
-              ],
-            ),
-          ),
+          ImageCarousel(imgPathList),
           // Titulo
           Container(
             alignment: Alignment.centerLeft,

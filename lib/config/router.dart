@@ -8,7 +8,10 @@ final router = GoRouter(
     GoRoute(path: HomePage.path, builder: (_, __) => const HomePage()),
     GoRoute(
       path: ShopDetailPage.path,
-      builder: (_, state) => ShopDetailPage(state.pathParameters['id']!),
+      builder: (_, state) => ShopDetailPage(
+        state.pathParameters['id']!,
+        shop: state.extra,
+      ),
     ),
   ],
 );

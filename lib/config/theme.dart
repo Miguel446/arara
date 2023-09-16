@@ -18,6 +18,10 @@ class AppTheme {
 
   static const secondary = Color(0xFF75A760);
 
+  static const black800 = Color(0xFF414141);
+
+  static const pagePadding = EdgeInsets.fromLTRB(20, 0, 20, 50);
+
   static get themeData => ThemeData(
         fontFamily: 'Inter',
         primarySwatch: primary,
@@ -33,6 +37,23 @@ class AppTheme {
         ),
         iconTheme: const IconThemeData(
           color: secondary,
+        ),
+        textTheme: const TextTheme(
+          headlineMedium: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: black800,
+          ),
+          bodyMedium: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
+            color: black800,
+          ),
+          labelMedium: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: black800,
+          ),
         ),
       );
 }

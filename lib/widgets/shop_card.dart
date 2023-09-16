@@ -16,7 +16,10 @@ class ShopCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push(ShopDetailPage.path.withId(shop.id)),
+      onTap: () => context.push(
+        ShopDetailPage.path.withId(shop.id),
+        extra: shop,
+      ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 24),
         child: Column(

@@ -9,3 +9,9 @@ extension StringExtension on String {
     return replaceFirst(':id', id);
   }
 }
+
+extension IntExtension on int {
+  String withUnit(String singular, String plural) {
+    return '$this ${this == 1 ? singular : plural}';
+  }
+}

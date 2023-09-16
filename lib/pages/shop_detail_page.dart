@@ -91,7 +91,7 @@ class _ShopDetailPageState extends State<ShopDetailPage> {
                     ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Divider(),
+                    child: Divider(color: AppTheme.black400),
                   ),
                   if (shop!.perks?.isNotEmpty == true)
                     ...shop!.perks!.map((perk) => _PerkTile(perk)).toList(),

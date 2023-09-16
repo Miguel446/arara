@@ -18,6 +18,7 @@ abstract class AppTheme {
 
   static const secondary = Color(0xFF75A760);
 
+  static const black400 = Color(0xFFBCBCBC);
   static const black600 = Color(0xFF747474);
   static const black800 = Color(0xFF414141);
 

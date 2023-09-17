@@ -5,6 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../config/theme.dart';
 import '../shared/extensions.dart';
 import '../shared/repositories/shop_repository.dart';
+import '../widgets/card/last_review_card.dart';
 import '../widgets/image_carousel.dart';
 import '../widgets/logo_app_bar.dart';
 
@@ -89,12 +90,21 @@ class _ShopDetailPageState extends State<ShopDetailPage> {
                       Icons.phone,
                       shop!.phone!,
                     ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Divider(color: AppTheme.black400),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24),
+                    child: Divider(color: Colors.grey[400]),
                   ),
                   if (shop!.perks?.isNotEmpty == true)
                     ...shop!.perks!.map((perk) => _PerkTile(perk)).toList(),
+
+                  // Avaliações
+                  if (shop!.reviews?.isNotEmpty == true) ...[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 24),
+                      child: Divider(color: Colors.grey[400]),
+                    ),
+                    LastReviewCard(shop!.reviews![0]),
+                  ],
                 ],
               ),
       ),

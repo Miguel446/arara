@@ -24,6 +24,18 @@ abstract class AppTheme {
 
   static const pagePadding = EdgeInsets.fromLTRB(20, 0, 20, 50);
 
+  static const bodyTextStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: black800,
+  );
+
+  static const labelTextStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: black800,
+  );
+
   static get themeData => ThemeData(
         fontFamily: 'Inter',
         primarySwatch: primary,
@@ -40,22 +52,16 @@ abstract class AppTheme {
         iconTheme: const IconThemeData(
           color: secondary,
         ),
-        textTheme: const TextTheme(
-          headlineMedium: TextStyle(
+        textTheme: TextTheme(
+          headlineMedium: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
             color: black800,
           ),
-          bodyMedium: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-            color: black800,
-          ),
-          labelMedium: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            color: black800,
-          ),
+          bodySmall: bodyTextStyle.copyWith(fontSize: 12),
+          bodyMedium: bodyTextStyle,
+          labelSmall: labelTextStyle.copyWith(fontSize: 12),
+          labelMedium: labelTextStyle,
         ),
       );
 }

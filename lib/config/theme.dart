@@ -24,6 +24,12 @@ abstract class AppTheme {
 
   static const pagePadding = EdgeInsets.fromLTRB(20, 0, 20, 50);
 
+  static const headlineTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: black800,
+  );
+
   static const bodyTextStyle = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
@@ -48,16 +54,13 @@ abstract class AppTheme {
           iconTheme: IconThemeData(
             color: primary,
           ),
+          titleTextStyle: headlineTextStyle,
         ),
         iconTheme: const IconThemeData(
           color: secondary,
         ),
         textTheme: TextTheme(
-          headlineMedium: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: black800,
-          ),
+          headlineMedium: headlineTextStyle,
           bodySmall: bodyTextStyle.copyWith(fontSize: 12),
           bodyMedium: bodyTextStyle,
           labelSmall: labelTextStyle.copyWith(fontSize: 12),

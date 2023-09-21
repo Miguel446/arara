@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../config/theme.dart';
@@ -8,6 +9,7 @@ import '../shared/repositories/shop_repository.dart';
 import '../widgets/card/last_review_card.dart';
 import '../widgets/image_carousel.dart';
 import '../widgets/logo_app_bar.dart';
+import 'shop_reviews_page.dart';
 
 class ShopDetailPage extends StatefulWidget {
   const ShopDetailPage(this.shopId, {super.key, this.shop});
@@ -104,6 +106,20 @@ class _ShopDetailPageState extends State<ShopDetailPage> {
                       child: Divider(color: Colors.grey[400]),
                     ),
                     LastReviewCard(shop!.reviews![0]),
+                    if (shop!.numberOfRatings! > 1)
+                      TextButton(
+                        onPressed: () => context.push(
+                          ShopReviewsPage.path.withId(widget.shopId),
+                          extra: shop,
+                        ),
+                        child: Text(
+                          'Mostrar todas as ${shop!.numberOfRatings} avaliações',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelMedium
+                              ?.copyWith(decoration: TextDecoration.underline),
+                        ),
+                      ),
                   ],
                 ],
               ),

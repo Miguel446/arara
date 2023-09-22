@@ -5,6 +5,7 @@ We believe that consuming fashion consciously is fundamental to preserving our p
 
 You can check out the [figma prototype here](https://www.figma.com/file/3AWoppDKwJZBM39rI8ddM6/Projeto-App-Arara-vers%C3%A3o-2?type=design&node-id=1049-2529&mode=design&t=2AymFAL2C3Lkp6YN-0).
 
+
 ## Features
 
 ### Thrift shops
@@ -21,6 +22,17 @@ The app has settings to change contrast and font size so people with impaired vi
 
 ### Contact Us
 Do you have any issues with the app? Fell free to reach out on the *Contact us* option in the support section on the Profile tab.
+
+## Screenshots
+Here's some screenshots of the app
+
+<div float="left">
+<img src="https://raw.githubusercontent.com/Miguel446/arara/assets/shop_list.png" alt="Thrift shop list page" width="30%" /> 
+<img src="https://raw.githubusercontent.com/Miguel446/arara/assets/shop_detail.png" alt="Thrift shop details page" width="30%" />
+<img src="https://raw.githubusercontent.com/Miguel446/arara/assets/news_and_papers.png" alt="News and papers page" width="30%" />
+<img src="https://raw.githubusercontent.com/Miguel446/arara/assets/reviews.png" alt="Reviews page" width="30%" />
+<img src="https://raw.githubusercontent.com/Miguel446/arara/assets/settings.png" alt="Settings page" width="30%" />
+</div>
 
 ## Roadmap
 Arara is an ongoing project and some of the features described are still to be implemented. Bellow you can find their status.

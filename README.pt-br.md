@@ -4,6 +4,9 @@ O Arara foi criado buscando facilitar a experiência das pessoas que querem cons
 
 Acreditamos que consumir moda de forma consciente é fundamental para a preservação do nosso planeta, e queremos contribuir para essa missão.
 
+_Leia isso em:_ [English](README.md)
+
+
 Você pode conferir o [protótipo no Figma aqui](https://www.figma.com/file/3AWoppDKwJZBM39rI8ddM6/Projeto-App-Arara-vers%C3%A3o-2?type=design&node-id=1049-2529&mode=design&t=2AymFAL2C3Lkp6YN-0).
 
 ## Funcionalidades

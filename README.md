@@ -4,6 +4,8 @@ Arara was created to facilitate the experience of people who want to consume fas
 
 We believe that consuming fashion consciously is fundamental to preserving our planet and we want to contribute to this mission.
 
+_Read this in:_ [Português](README.pt-br.md)
+
 You can check out the [figma prototype here](https://www.figma.com/file/3AWoppDKwJZBM39rI8ddM6/Projeto-App-Arara-vers%C3%A3o-2?type=design&node-id=1049-2529&mode=design&t=2AymFAL2C3Lkp6YN-0).
 
 ## Features

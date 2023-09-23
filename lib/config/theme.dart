@@ -47,6 +47,7 @@ abstract class AppTheme {
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,
+        dividerColor: Colors.grey[400],
         appBarTheme: const AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.white,

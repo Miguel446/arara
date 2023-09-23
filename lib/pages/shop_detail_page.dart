@@ -91,18 +91,18 @@ class ShopDetailPageBody extends StatelessWidget {
               shop.phone!,
             ),
           if (shop.perks?.isNotEmpty == true) ...[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 24),
-              child: Divider(color: Colors.grey[400]),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 24),
+              child: Divider(),
             ),
             ...shop.perks!.map((perk) => _PerkTile(perk)).toList(),
           ],
 
           // Avaliações
           if (shop.reviews?.isNotEmpty == true) ...[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 24),
-              child: Divider(color: Colors.grey[400]),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 24),
+              child: Divider(),
             ),
             ReviewCard.border(shop.reviews![0]),
             if (shop.reviews!.length > 1)

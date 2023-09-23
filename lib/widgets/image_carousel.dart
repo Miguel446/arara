@@ -21,14 +21,21 @@ class ImageCarousel extends StatelessWidget {
         indicatorBackgroundColor: Colors.white70,
         indicatorColor: AppTheme.secondary,
         autoPlayInterval: 0,
-        children: imageUrls
-            .map(
-              (url) => Image.asset(
-                url,
+        children: imageUrls.map(
+          (uri) {
+            if (uri.startsWith('http')) {
+              return Image.network(
+                uri,
                 fit: BoxFit.cover,
-              ),
-            )
-            .toList(),
+              );
+            }
+
+            return Image.asset(
+              uri,
+              fit: BoxFit.cover,
+            );
+          },
+        ).toList(),
       ),
     );
   }

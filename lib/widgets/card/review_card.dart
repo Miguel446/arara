@@ -3,27 +3,40 @@ import 'package:flutter/material.dart';
 import '../../config/theme.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/review.dart';
+import '../image_carousel.dart';
 
-class LastReviewCard extends StatelessWidget {
-  const LastReviewCard(this.review, {super.key});
+class ReviewCard extends StatelessWidget {
+  const ReviewCard(this.review, {super.key}) : hasBorder = false;
+
+  const ReviewCard.border(this.review, {super.key}) : hasBorder = true;
 
   final Review review;
+  final bool hasBorder;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
-      decoration: ShapeDecoration(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: Colors.grey[500]!),
-          borderRadius: BorderRadius.circular(24),
-        ),
-      ),
+      padding: hasBorder
+          ? const EdgeInsets.symmetric(horizontal: 28, vertical: 24)
+          : const EdgeInsets.symmetric(vertical: 12),
+      decoration: hasBorder
+          ? ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: Colors.grey[500]!),
+                borderRadius: BorderRadius.circular(24),
+              ),
+            )
+          : null,
       child: Column(
         children: [
+          if (!hasBorder && review.imageUrls?.isNotEmpty == true)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: ImageCarousel(review.imageUrls!),
+            ),
           Row(
             children: [
               CircleAvatar(

@@ -10,7 +10,6 @@ final List<Shop> mockPhysicalShops = [
     address: 'Rua Domingos Marreiros, 727 - Umarizal',
     openingHours: 'Seg. a Sex. - 08:00 às 18:00',
     averageRating: 4.8,
-    numberOfRatings: 9,
     imageUrls: [
       'assets/brecho.png',
       'assets/brecho12.jpeg',
@@ -41,7 +40,6 @@ final List<Shop> mockPhysicalShops = [
     openingHours: 'Seg. a Sab. - 08:00 às 18:00',
     phone: '(91) 3212-0413',
     averageRating: 3.7,
-    numberOfRatings: 3,
     imageUrls: [
       'assets/brecho3.png',
       'assets/brecho32.jpeg',
@@ -74,7 +72,6 @@ final List<Shop> mockVirtualShops = [
     phone: '(91) 98337-5857',
     openingHours: 'Seg. a Sab. - 09:00 às 18:00',
     averageRating: 5.0,
-    numberOfRatings: 2,
     imageUrls: [
       'assets/brecho2.png',
       'assets/brecho22.jpeg',

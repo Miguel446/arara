@@ -12,7 +12,6 @@ class Shop {
   final String openingHours;
   final List<String>? imageUrls;
   final double? averageRating;
-  final int? numberOfRatings;
   final List<ShopPerk>? perks;
   final List<Review>? reviews;
 
@@ -26,7 +25,6 @@ class Shop {
     required this.openingHours,
     this.imageUrls,
     this.averageRating,
-    this.numberOfRatings,
     this.perks,
     this.reviews,
   });

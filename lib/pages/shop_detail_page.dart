@@ -65,11 +65,11 @@ class ShopDetailPageBody extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
-          if (shop.averageRating != null && shop.numberOfRatings != null)
+          if (shop.averageRating != null && shop.reviews?.length != null)
             _IconText(
               Icons.star,
               '${shop.averageRating} | '
-              '${shop.numberOfRatings!.withUnit('avaliação', 'avaliações')}',
+              '${shop.reviews!.length.withUnit('avaliação', 'avaliações')}',
             ),
           if (shop.address != null)
             _IconText(
@@ -105,14 +105,14 @@ class ShopDetailPageBody extends StatelessWidget {
               child: Divider(color: Colors.grey[400]),
             ),
             ReviewCard.border(shop.reviews![0]),
-            if (shop.numberOfRatings! > 1)
+            if (shop.reviews!.length > 1)
               TextButton(
                 onPressed: () => context.push(
                   ShopReviewsPage.path.withId(shop.id),
                   extra: shop,
                 ),
                 child: Text(
-                  'Mostrar todas as ${shop.numberOfRatings} avaliações',
+                  'Mostrar todas as ${shop.reviews!.length} avaliações',
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium

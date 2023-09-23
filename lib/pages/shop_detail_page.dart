@@ -90,12 +90,13 @@ class ShopDetailPageBody extends StatelessWidget {
               Icons.phone,
               shop.phone!,
             ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 24),
-            child: Divider(color: Colors.grey[400]),
-          ),
-          if (shop.perks?.isNotEmpty == true)
+          if (shop.perks?.isNotEmpty == true) ...[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: Divider(color: Colors.grey[400]),
+            ),
             ...shop.perks!.map((perk) => _PerkTile(perk)).toList(),
+          ],
 
           // Avaliações
           if (shop.reviews?.isNotEmpty == true) ...[

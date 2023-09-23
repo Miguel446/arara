@@ -66,5 +66,17 @@ abstract class AppTheme {
           labelSmall: labelTextStyle.copyWith(fontSize: 12),
           labelMedium: labelTextStyle,
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            textStyle: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+            minimumSize: const Size.fromHeight(56),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
+            ),
+          ),
+        ),
       );
 }

@@ -44,7 +44,12 @@ class ShopReviewsPageBody extends StatelessWidget {
       body: ListView.builder(
         padding: AppTheme.pagePadding.copyWith(top: 20),
         itemCount: shop.reviews?.length ?? 0,
-        itemBuilder: (_, index) => ReviewCard(shop.reviews![index]),
+        itemBuilder: (_, index) => Column(
+          children: [
+            ReviewCard(shop.reviews![index]),
+            if (index != shop.reviews!.length - 1) const Divider(),
+          ],
+        ),
       ),
     );
   }

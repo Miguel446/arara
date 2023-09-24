@@ -67,6 +67,11 @@ abstract class AppTheme {
           labelSmall: labelTextStyle.copyWith(fontSize: 12),
           labelMedium: labelTextStyle,
         ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             textStyle: const TextStyle(

@@ -47,9 +47,9 @@ Here's some screenshots of the app
 Arara is an ongoing project and some of the features described are still to be implemented. Bellow you can find their status.
 
 - [x] Basic app structure with all tabs
-- [ ] Thirft stores details
-  - [ ] Basic information
-  - [ ] Reviews page
+- [x] Thirft stores details
+  - [x] Basic information
+  - [x] Reviews page
 - [ ] Maps
   - [ ] Explore thrift shops on a interactive map
   - [ ] Display shop location on a map on the details page

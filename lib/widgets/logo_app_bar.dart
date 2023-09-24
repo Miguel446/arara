@@ -10,7 +10,7 @@ class LogoAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final List<Widget>? actions;
 
-  static const toolbarHeight = 100.0;
+  static const toolbarHeight = 75.0;
 
   @override
   Size get preferredSize => const Size.fromHeight(toolbarHeight);

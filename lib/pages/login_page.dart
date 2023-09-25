@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../config/theme.dart';
+import '../shared/providers/user_provider.dart';
 import '../shared/repositories/auth_repository.dart';
 import '../widgets/app_logo.dart';
 import 'home_page.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
   static const path = '/login';
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   String email = '';
   String password = '';
 
@@ -27,7 +29,14 @@ class _LoginPageState extends State<LoginPage> {
   void login() async {
     if (formKey.currentState?.validate() != true) return;
 
-    await GetIt.I<AuthRepository>().login(email, password);
+    final user = await GetIt.I<AuthRepository>().login(email, password);
+
+    final userNotifier = ref.read(userProvider.notifier);
+    userNotifier.user = user;
+
+    if (shouldRemember) {
+      userNotifier.storeUser();
+    }
 
     if (!mounted) return;
     context.replace(HomePage.path);

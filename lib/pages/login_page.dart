@@ -26,9 +26,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   bool shouldRemember = true;
 
   final formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   void login() async {
-    if (formKey.currentState?.validate() != true) return;
+    if (formKey.currentState?.validate() != true) {
+      return setState(
+          () => autovalidateMode = AutovalidateMode.onUserInteraction);
+    }
 
     final user = await GetIt.I<AuthRepository>().login(email, password);
 
@@ -53,6 +57,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           padding: AppTheme.pagePadding,
           child: Form(
             key: formKey,
+            autovalidateMode: autovalidateMode,
             child: Column(
               children: [
                 const AppLogo(height: 140),

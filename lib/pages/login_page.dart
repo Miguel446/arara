@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../config/theme.dart';
 import '../shared/providers/user_provider.dart';
 import '../shared/repositories/auth_repository.dart';
+import '../shared/utils/validators.dart';
 import '../widgets/app_logo.dart';
 import 'home_page.dart';
 
@@ -63,6 +64,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     label: Text('E-mail'),
                   ),
                   keyboardType: TextInputType.emailAddress,
+                  validator: Validators.email(),
                 ),
                 const SizedBox(height: 32),
                 TextFormField(
@@ -71,6 +73,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     label: Text('Senha'),
                   ),
                   obscureText: true,
+                  validator: Validators.password(),
                 ),
                 const SizedBox(height: 32),
                 Row(

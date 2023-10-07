@@ -8,6 +8,7 @@ import '../shared/providers/user_provider.dart';
 import '../shared/repositories/auth_repository.dart';
 import '../shared/utils/validators.dart';
 import '../widgets/app_logo.dart';
+import '../widgets/buttons/app_elevated_button.dart';
 import 'home_page.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
@@ -24,6 +25,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   String password = '';
 
   bool shouldRemember = true;
+  bool isLoading = false;
 
   final formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -33,18 +35,23 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       return setState(
           () => autovalidateMode = AutovalidateMode.onUserInteraction);
     }
+    setState(() => isLoading = true);
 
-    final user = await GetIt.I<AuthRepository>().login(email, password);
+    try {
+      final user = await GetIt.I<AuthRepository>().login(email, password);
 
-    final userNotifier = ref.read(userProvider.notifier);
-    userNotifier.user = user;
+      final userNotifier = ref.read(userProvider.notifier);
+      userNotifier.user = user;
 
-    if (shouldRemember) {
-      userNotifier.storeUser();
+      if (shouldRemember) {
+        userNotifier.storeUser();
+      }
+
+      if (!mounted) return;
+      context.replace(HomePage.path);
+    } finally {
+      setState(() => isLoading = false);
     }
-
-    if (!mounted) return;
-    context.replace(HomePage.path);
   }
 
   @override
@@ -102,8 +109,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ],
                 ),
                 const SizedBox(height: 32),
-                ElevatedButton(
+                AppElevatedButton(
                   onPressed: login,
+                  isLoading: isLoading,
                   child: const Text('Entrar'),
                 ),
               ],

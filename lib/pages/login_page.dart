@@ -70,6 +70,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ),
                   keyboardType: TextInputType.emailAddress,
                   validator: Validators.email(),
+                  textInputAction: TextInputAction.next,
                 ),
                 const SizedBox(height: 32),
                 TextFormField(
@@ -79,6 +80,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ),
                   obscureText: true,
                   validator: Validators.password(),
+                  onFieldSubmitted: (_) => login(),
                 ),
                 const SizedBox(height: 32),
                 Row(

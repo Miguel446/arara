@@ -48,9 +48,9 @@ Aqui estão algumas capturas de tela do aplicativo
 Arara é um projeto em andamento, e algumas das funcionalidades descritas ainda estão sendo implementadas. Abaixo, você pode encontrar o status delas.
 
 - [x] Estrutura básica do aplicativo com todas as abas
-- [ ] Detalhes dos brechós
-  - [ ] Informações básicas
-  - [ ] Página de avaliações
+- [x] Detalhes dos brechós
+  - [x] Informações básicas
+  - [x] Página de avaliações
 - [ ] Mapas
   - [ ] Explorar brechós em um mapa interativo
   - [ ] Exibir a localização do brechó na página de detalhes

@@ -82,6 +82,7 @@ abstract class AppTheme {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24),
             ),
+            disabledBackgroundColor: primary[500],
           ),
         ),
         textButtonTheme: TextButtonThemeData(

@@ -10,22 +10,18 @@ class AccountMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 5),
+    return Padding(
+      padding: const EdgeInsets.only(top: 5),
       child: Column(
         children: [
           Row(
             children: [
-              Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    child: Icon(
-                      iconData,
-                      size: 22,
-                    ),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Icon(
+                  iconData,
+                  size: 22,
+                ),
               ),
               Expanded(
                 child: Text(
@@ -45,7 +41,7 @@ class AccountMenuItem extends StatelessWidget {
           const Divider(
             thickness: 1,
             color: Colors.grey,
-          )
+          ),
         ],
       ),
     );

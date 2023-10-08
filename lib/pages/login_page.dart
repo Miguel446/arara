@@ -8,7 +8,7 @@ import '../shared/providers/user_provider.dart';
 import '../shared/repositories/auth_repository.dart';
 import '../shared/utils/validators.dart';
 import '../widgets/app_logo.dart';
-import '../widgets/buttons/app_elevated_button.dart';
+import '../widgets/buttons/button.dart';
 import 'home_page.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
@@ -109,7 +109,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ],
                 ),
                 const SizedBox(height: 32),
-                AppElevatedButton(
+                Button.elevated(
                   onPressed: login,
                   isLoading: isLoading,
                   child: const Text('Entrar'),

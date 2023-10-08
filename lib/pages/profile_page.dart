@@ -1,76 +1,95 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../config/theme.dart';
+import '../shared/providers/user_provider.dart';
 import '../widgets/account_menu_item.dart';
 import '../widgets/account_menu_title.dart';
 import '../widgets/app_logo.dart';
+import '../widgets/buttons/button.dart';
+import '../widgets/dialogs/dialog.dart';
+import 'login_page.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                AppLogo(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: SafeArea(
+        child: Padding(
+          padding: AppTheme.pagePadding,
+          child: Column(
+            children: [
+              const AppLogo(
+                padding: EdgeInsets.symmetric(vertical: 10),
+              ),
 
-                // Meus dados
-                AccountMenuTitle(title: 'Meus dados'),
-                AccountMenuItem(
-                    title: 'Perfil', iconData: Icons.account_circle),
-                AccountMenuItem(title: 'Alterar senha', iconData: Icons.key),
-                AccountMenuItem(title: 'Favoritos', iconData: Icons.favorite),
-                SizedBox(
-                  height: 20,
-                ),
+              // Meus dados
+              const AccountMenuTitle(title: 'Meus dados'),
+              const AccountMenuItem(
+                  title: 'Perfil', iconData: Icons.account_circle),
+              const AccountMenuItem(
+                  title: 'Alterar senha', iconData: Icons.key),
+              const AccountMenuItem(
+                  title: 'Favoritos', iconData: Icons.favorite),
+              const SizedBox(
+                height: 20,
+              ),
 
-                // Configuracoes da conta
-                AccountMenuTitle(title: 'Configurações da conta'),
-                AccountMenuItem(
-                    title: 'Acessibilidade',
-                    iconData: Icons.settings_accessibility),
-                AccountMenuItem(
-                    title: 'Notificações', iconData: Icons.notifications),
-                AccountMenuItem(
-                    title: 'Encerrar conta', iconData: Icons.warning),
-                SizedBox(
-                  height: 20,
-                ),
+              // Configuracoes da conta
+              const AccountMenuTitle(title: 'Configurações da conta'),
+              const AccountMenuItem(
+                  title: 'Acessibilidade',
+                  iconData: Icons.settings_accessibility),
+              const AccountMenuItem(
+                  title: 'Notificações', iconData: Icons.notifications),
+              const AccountMenuItem(
+                  title: 'Encerrar conta', iconData: Icons.warning),
+              const SizedBox(
+                height: 20,
+              ),
 
-                // Suporte
-                AccountMenuTitle(title: 'Suporte'),
-                AccountMenuItem(
-                    title: 'Tutorial rápido', iconData: Icons.support),
-                AccountMenuItem(
-                    title: 'Fale conosco', iconData: Icons.support_agent),
-                AccountMenuItem(title: 'Sobre o Arara', iconData: Icons.info),
-                SizedBox(
-                  height: 24,
-                ),
+              // Suporte
+              const AccountMenuTitle(title: 'Suporte'),
+              const AccountMenuItem(
+                  title: 'Tutorial rápido', iconData: Icons.support),
+              const AccountMenuItem(
+                  title: 'Fale conosco', iconData: Icons.support_agent),
+              const AccountMenuItem(
+                  title: 'Sobre o Arara', iconData: Icons.info),
+              const SizedBox(
+                height: 24,
+              ),
 
-                // Sair da conta
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Sair da conta',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
+              // Sair da conta
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: AppDialog.choice(
+                    context: context,
+                    title: 'Sair da conta',
+                    text: 'Deseja realmente sair da sua conta?',
+                    rightButtonText: 'Sim',
+                    onRightButtonPressed: () {
+                      context.pop();
+                      context.go(LoginPage.path);
+                      ref.read(userProvider.notifier).unsetUser();
+                    },
+                    rightButtonType: ButtonType.outlined,
+                    leftButtonText: 'Não',
+                    onLeftButtonPressed: context.pop,
+                    leftButtonType: ButtonType.elevated,
+                  ).show,
+                  child: const Text('Sair da conta'),
                 ),
-                SizedBox(
-                  height: 24,
-                )
-              ],
-            ),
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

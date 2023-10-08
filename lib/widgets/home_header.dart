@@ -23,11 +23,8 @@ class HomeHeader extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  suffixIcon: const Icon(Icons.search),
+                decoration: const InputDecoration(
+                  suffixIcon: Icon(Icons.search),
                   hintText: 'Procure por bazares e brechós',
                 ),
                 onChanged: (value) =>

@@ -72,7 +72,7 @@ Arara is an ongoing project and some of the features described are still to be i
   - [ ] Tutorial
   - [ ] Contact Us
   - [ ] About us
-- [ ] Login
-  - [ ] Email and password login
+- [x] Login
+  - [x] Email and password login
   - [ ] Google login
   - [ ] Facebook login

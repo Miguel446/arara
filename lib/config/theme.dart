@@ -42,6 +42,9 @@ abstract class AppTheme {
     color: black800,
   );
 
+  static const buttonMinimumSize = Size.fromHeight(56);
+  static final buttonBorderRadius = BorderRadius.circular(24);
+
   static get themeData => ThemeData(
         fontFamily: 'Inter',
         primarySwatch: primary,
@@ -78,11 +81,19 @@ abstract class AppTheme {
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
-            minimumSize: const Size.fromHeight(56),
+            minimumSize: buttonMinimumSize,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: buttonBorderRadius,
             ),
             disabledBackgroundColor: primary[500],
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            minimumSize: buttonMinimumSize,
+            shape: RoundedRectangleBorder(
+              borderRadius: buttonBorderRadius,
+            ),
           ),
         ),
         textButtonTheme: TextButtonThemeData(

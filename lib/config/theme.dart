@@ -45,7 +45,7 @@ abstract class AppTheme {
   static const buttonMinimumSize = Size.fromHeight(56);
   static final buttonBorderRadius = BorderRadius.circular(24);
 
-  static get themeData => ThemeData(
+  static ThemeData get themeData => ThemeData(
         fontFamily: 'Inter',
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,

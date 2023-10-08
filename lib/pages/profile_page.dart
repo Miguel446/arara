@@ -7,6 +7,8 @@ import '../shared/providers/user_provider.dart';
 import '../widgets/account_menu_item.dart';
 import '../widgets/account_menu_title.dart';
 import '../widgets/app_logo.dart';
+import '../widgets/buttons/button.dart';
+import '../widgets/dialogs/dialog.dart';
 import 'login_page.dart';
 
 class ProfilePage extends ConsumerWidget {
@@ -66,11 +68,22 @@ class ProfilePage extends ConsumerWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton(
+                  onPressed: AppDialog.choice(
+                    context: context,
+                    title: 'Sair da conta',
+                    text: 'Deseja realmente sair da sua conta?',
+                    rightButtonText: 'Sim',
+                    onRightButtonPressed: () {
+                      context.pop();
+                      context.go(LoginPage.path);
+                      ref.read(userProvider.notifier).unsetUser();
+                    },
+                    rightButtonType: ButtonType.outlined,
+                    leftButtonText: 'Não',
+                    onLeftButtonPressed: context.pop,
+                    leftButtonType: ButtonType.elevated,
+                  ).show,
                   child: const Text('Sair da conta'),
-                  onPressed: () {
-                    context.go(LoginPage.path);
-                    ref.read(userProvider.notifier).unsetUser();
-                  },
                 ),
               ),
             ],

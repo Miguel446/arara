@@ -43,10 +43,10 @@ class HomeHeader extends ConsumerWidget {
                       color: Colors.grey,
                     ),
                   ),
-                  const TabBar(
-                    labelColor: Colors.black,
+                  TabBar(
+                    labelColor: Theme.of(context).textTheme.bodyMedium?.color,
                     indicatorSize: TabBarIndicatorSize.tab,
-                    indicator: UnderlineTabIndicator(
+                    indicator: const UnderlineTabIndicator(
                       insets: EdgeInsets.symmetric(horizontal: 70),
                       borderSide: BorderSide(
                         color: AppTheme.primary,
@@ -54,7 +54,7 @@ class HomeHeader extends ConsumerWidget {
                         style: BorderStyle.solid,
                       ),
                     ),
-                    tabs: [
+                    tabs: const [
                       Tab(text: 'Espaços físicos'),
                       Tab(text: 'Espaços virtuais'),
                     ],

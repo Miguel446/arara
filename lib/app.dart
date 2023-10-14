@@ -3,19 +3,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/router.dart';
 import 'config/theme.dart';
+import 'shared/providers/theme_mode_provider.dart';
 
-class App extends StatelessWidget {
+class App extends ConsumerWidget {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderScope(
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: 'Arara',
-        theme: AppTheme.themeData,
-        routerConfig: router,
-      ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
+
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'Arara',
+      theme: AppTheme.themeData,
+      darkTheme: AppTheme.darkThemeData,
+      themeMode: themeMode,
+      routerConfig: router,
     );
   }
 }

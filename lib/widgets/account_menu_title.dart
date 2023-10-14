@@ -6,26 +6,26 @@ class AccountMenuTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-            ),
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.grey,
+            width: 1,
           ),
         ),
-        const SizedBox(
-          height: 5,
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
         ),
-        const Divider(
-          thickness: 1,
-          color: Colors.grey,
-        )
-      ],
+      ),
     );
   }
 }

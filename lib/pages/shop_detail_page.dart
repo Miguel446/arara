@@ -113,10 +113,6 @@ class ShopDetailPageBody extends StatelessWidget {
                 ),
                 child: Text(
                   'Mostrar todas as ${shop.reviews!.length} avaliações',
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelMedium
-                      ?.copyWith(decoration: TextDecoration.underline),
                 ),
               ),
           ],

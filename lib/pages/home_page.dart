@@ -54,7 +54,6 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: currentPageIndex,
         onTap: changeTab,
-        unselectedItemColor: const Color(0x801E1E1E),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         iconSize: 28,

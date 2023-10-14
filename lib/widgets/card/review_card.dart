@@ -23,7 +23,6 @@ class ReviewCard extends StatelessWidget {
           : const EdgeInsets.symmetric(vertical: 12),
       decoration: hasBorder
           ? ShapeDecoration(
-              color: Colors.white,
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: Colors.grey[500]!),
                 borderRadius: BorderRadius.circular(24),

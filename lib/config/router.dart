@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 
 import '../pages/home_page.dart';
 import '../pages/login_page.dart';
+import '../pages/settings/accessibility_page.dart';
 import '../pages/shop_detail_page.dart';
 import '../pages/shop_reviews_page.dart';
 import '../shared/providers/user_provider.dart';
@@ -24,6 +25,12 @@ final router = GoRouter(
         state.pathParameters['id']!,
         shop: state.extra,
       ),
+    ),
+
+    // Configurações
+    GoRoute(
+      path: AccessibilityPage.path,
+      builder: (_, __) => const AccessibilityPage(),
     ),
   ],
 );

@@ -10,6 +10,7 @@ import '../widgets/app_logo.dart';
 import '../widgets/buttons/button.dart';
 import '../widgets/dialogs/dialog.dart';
 import 'login_page.dart';
+import 'settings/accessibility_page.dart';
 
 class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
@@ -41,9 +42,11 @@ class ProfilePage extends ConsumerWidget {
 
               // Configuracoes da conta
               const AccountMenuTitle(title: 'Configurações da conta'),
-              const AccountMenuItem(
-                  title: 'Acessibilidade',
-                  iconData: Icons.settings_accessibility),
+              AccountMenuItem(
+                title: 'Acessibilidade',
+                iconData: Icons.settings_accessibility,
+                onPressed: () => context.push(AccessibilityPage.path),
+              ),
               const AccountMenuItem(
                   title: 'Notificações', iconData: Icons.notifications),
               const AccountMenuItem(

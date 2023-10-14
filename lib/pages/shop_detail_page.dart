@@ -136,7 +136,9 @@ class _IconText extends StatelessWidget {
         children: [
           Icon(icon, size: 17),
           const SizedBox(width: 3),
-          Text(text, style: Theme.of(context).textTheme.bodyMedium),
+          Expanded(
+            child: Text(text, style: Theme.of(context).textTheme.bodyMedium),
+          ),
         ],
       ),
     );

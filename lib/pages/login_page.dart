@@ -90,23 +90,20 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   onFieldSubmitted: (_) => login(),
                 ),
                 const SizedBox(height: 32),
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () =>
-                          setState(() => shouldRemember = !shouldRemember),
-                      child: Row(
-                        children: [
-                          Checkbox(
-                            value: shouldRemember,
-                            onChanged: (value) =>
-                                setState(() => shouldRemember = value!),
-                          ),
-                          const Text('Lembrar sempre'),
-                        ],
+                GestureDetector(
+                  onTap: () => setState(() => shouldRemember = !shouldRemember),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        value: shouldRemember,
+                        onChanged: (value) =>
+                            setState(() => shouldRemember = value!),
                       ),
-                    ),
-                  ],
+                      const Flexible(
+                        child: Text('Lembrar sempre'),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 32),
                 Button.elevated(

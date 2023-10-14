@@ -43,7 +43,7 @@ abstract class AppTheme {
   );
 
   static const buttonMinimumSize = Size.fromHeight(56);
-  static final buttonBorderRadius = BorderRadius.circular(24);
+  static final borderRadius = BorderRadius.circular(24);
 
   static ThemeData get themeData => ThemeData(
         fontFamily: 'Inter',
@@ -72,7 +72,7 @@ abstract class AppTheme {
         ),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: borderRadius,
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -83,7 +83,7 @@ abstract class AppTheme {
             ),
             minimumSize: buttonMinimumSize,
             shape: RoundedRectangleBorder(
-              borderRadius: buttonBorderRadius,
+              borderRadius: borderRadius,
             ),
             disabledBackgroundColor: primary[500],
           ),
@@ -92,7 +92,7 @@ abstract class AppTheme {
           style: OutlinedButton.styleFrom(
             minimumSize: buttonMinimumSize,
             shape: RoundedRectangleBorder(
-              borderRadius: buttonBorderRadius,
+              borderRadius: borderRadius,
             ),
           ),
         ),
@@ -104,6 +104,59 @@ abstract class AppTheme {
               decoration: TextDecoration.underline,
             ),
           ),
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: primary,
+          unselectedItemColor: Colors.grey[400],
+        ),
+      );
+
+  static ThemeData get darkThemeData => themeData.copyWith(
+        scaffoldBackgroundColor: Colors.grey[800],
+        appBarTheme: themeData.appBarTheme.copyWith(
+          backgroundColor: Colors.grey[800],
+        ),
+        textTheme: themeData.textTheme.apply(
+          bodyColor: Colors.white,
+          displayColor: Colors.white,
+        ),
+        inputDecorationTheme: themeData.inputDecorationTheme.copyWith(
+          enabledBorder: OutlineInputBorder(
+            borderRadius: borderRadius,
+            borderSide: BorderSide(color: Colors.grey[500]!),
+          ),
+          iconColor: Colors.grey[500],
+          suffixIconColor: Colors.grey[500],
+          prefixIconColor: Colors.grey[500],
+          floatingLabelStyle: const TextStyle(color: primary),
+          labelStyle: TextStyle(color: Colors.grey[500]),
+          hintStyle: TextStyle(color: Colors.grey[500]),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            minimumSize: buttonMinimumSize,
+            side: BorderSide(color: Colors.grey[500]!),
+            shape: RoundedRectangleBorder(borderRadius: borderRadius),
+            textStyle: const TextStyle(fontWeight: FontWeight.w600),
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.grey[500],
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.w600,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        ),
+        bottomNavigationBarTheme: themeData.bottomNavigationBarTheme.copyWith(
+          backgroundColor: Colors.grey[700],
+        ),
+        dialogTheme: DialogTheme(
+          backgroundColor: Colors.grey[700],
+        ),
+        checkboxTheme: CheckboxThemeData(
+          side: BorderSide(color: Colors.grey[500]!, width: 1.5),
         ),
       );
 }

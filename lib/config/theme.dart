@@ -67,6 +67,7 @@ abstract class AppTheme {
           headlineMedium: headlineTextStyle,
           bodySmall: bodyTextStyle.copyWith(fontSize: 12),
           bodyMedium: bodyTextStyle,
+          bodyLarge: bodyTextStyle.copyWith(fontSize: 16),
           labelSmall: labelTextStyle.copyWith(fontSize: 12),
           labelMedium: labelTextStyle,
         ),

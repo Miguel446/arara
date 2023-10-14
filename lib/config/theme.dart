@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-abstract class AppTheme {
+import '../shared/providers/font_size_provider.dart';
+
+final appThemeProvider = Provider<AppTheme>((ref) {
+  final fontSizeFactor = ref.watch(fontSizeFactorProvider);
+
+  return AppTheme(fontSizeFactor: fontSizeFactor);
+});
+
+class AppTheme {
+  const AppTheme({this.fontSizeFactor = 1});
+
+  final double fontSizeFactor;
+
   static const primary = MaterialColor(
     0xFFA071A0,
     <int, Color>{
@@ -45,7 +58,7 @@ abstract class AppTheme {
   static const buttonMinimumSize = Size.fromHeight(56);
   static final borderRadius = BorderRadius.circular(24);
 
-  static ThemeData get themeData => ThemeData(
+  ThemeData get themeData => ThemeData(
         fontFamily: 'Inter',
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -70,6 +83,8 @@ abstract class AppTheme {
           bodyLarge: bodyTextStyle.copyWith(fontSize: 16),
           labelSmall: labelTextStyle.copyWith(fontSize: 12),
           labelMedium: labelTextStyle,
+        ).apply(
+          fontSizeFactor: fontSizeFactor,
         ),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
@@ -112,7 +127,7 @@ abstract class AppTheme {
         ),
       );
 
-  static ThemeData get darkThemeData => themeData.copyWith(
+  ThemeData get darkThemeData => themeData.copyWith(
         scaffoldBackgroundColor: Colors.grey[800],
         appBarTheme: themeData.appBarTheme.copyWith(
           backgroundColor: Colors.grey[800],

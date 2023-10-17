@@ -1,5 +1,7 @@
-import 'package:arara/config/theme.dart';
 import 'package:flutter/material.dart';
+
+import '../config/theme.dart';
+import 'scaled_icon.dart';
 
 class AccountMenuItem extends StatelessWidget {
   const AccountMenuItem({
@@ -31,7 +33,7 @@ class AccountMenuItem extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 10),
-              child: Icon(
+              child: ScaledIcon(
                 iconData,
                 size: 22,
               ),

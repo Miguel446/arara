@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../shared/providers/shop_search_name_provider.dart';
 import '../config/theme.dart';
 import 'app_logo.dart';
+import 'scaled_icon.dart';
 
 class HomeHeader extends ConsumerWidget {
   const HomeHeader({super.key});
@@ -24,7 +25,7 @@ class HomeHeader extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
                 decoration: const InputDecoration(
-                  suffixIcon: Icon(Icons.search),
+                  suffixIcon: ScaledIcon(Icons.search),
                   hintText: 'Procure por bazares e brechós',
                 ),
                 onChanged: (value) =>

@@ -5,6 +5,7 @@ import '../../config/theme.dart';
 import '../../shared/providers/font_size_provider.dart';
 import '../../shared/providers/theme_mode_provider.dart';
 import '../../widgets/logo_app_bar.dart';
+import '../../widgets/scaled_icon.dart';
 
 class AccessibilityPage extends ConsumerWidget {
   const AccessibilityPage({super.key});
@@ -32,7 +33,7 @@ class AccessibilityPage extends ConsumerWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(right: 8),
-                  child: Icon(Icons.format_size),
+                  child: ScaledIcon(Icons.format_size),
                 ),
                 Expanded(
                   child: Text(

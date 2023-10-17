@@ -6,6 +6,7 @@ import '../../shared/models/shop.dart';
 import '../pages/shop_detail_page.dart';
 import '../shared/extensions.dart';
 import 'image_carousel.dart';
+import 'scaled_icon.dart';
 
 class ShopCard extends StatelessWidget {
   final Shop shop;
@@ -45,7 +46,7 @@ class ShopCard extends StatelessWidget {
                       children: [
                         const Padding(
                           padding: EdgeInsets.only(left: 8),
-                          child: Icon(
+                          child: ScaledIcon(
                             Icons.star,
                             size: 17,
                           ),

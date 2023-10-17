@@ -11,6 +11,7 @@ import '../widgets/card/review_card.dart';
 import '../widgets/error_message.dart';
 import '../widgets/image_carousel.dart';
 import '../widgets/logo_app_bar.dart';
+import '../widgets/scaled_icon.dart';
 import 'shop_reviews_page.dart';
 
 class ShopDetailPage extends ConsumerWidget {
@@ -133,8 +134,9 @@ class _IconText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 17),
+          ScaledIcon(icon, size: 17),
           const SizedBox(width: 3),
           Expanded(
             child: Text(text, style: Theme.of(context).textTheme.bodyMedium),
@@ -157,7 +159,7 @@ class _PerkTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(perk.icon),
+          ScaledIcon(perk.icon),
           const SizedBox(width: 12),
           Expanded(
             child: Column(

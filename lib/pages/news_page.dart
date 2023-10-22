@@ -73,11 +73,11 @@ class NewsPage extends StatelessWidget {
                 height: 800,
                 child: TabBarView(
                   physics: const BouncingScrollPhysics(),
-                  children: <Widget>[
-                    NewsCardTab(),
-                    NewsCardTab(),
+                  children: [
+                    const NewsCardTab(),
+                    const NewsCardTab(getHighlights: false),
                     ArticleCardTab(),
-                    NewsCardTab(),
+                    const NewsCardTab(getHighlights: true),
                   ],
                 ),
               )

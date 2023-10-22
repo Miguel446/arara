@@ -10,6 +10,11 @@ extension StringExtension on String {
   String withId(String id) {
     return replaceFirst(':id', id);
   }
+
+  // TODO: Remove this getter when all images are fetched from the API
+  bool get isUrl {
+    return startsWith('http');
+  }
 }
 
 extension IntExtension on int {

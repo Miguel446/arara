@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/news.dart';
+import '../../utils/extensions.dart';
 
 class NewsCard extends StatelessWidget {
   final News news;
@@ -22,7 +23,7 @@ class NewsCard extends StatelessWidget {
         image: news.imageUrl != null
             ? DecorationImage(
                 fit: BoxFit.fill,
-                image: (news.imageUrl!.startsWith('http')
+                image: (news.imageUrl!.isUrl
                         ? NetworkImage(news.imageUrl!)
                         : AssetImage('assets/${news.imageUrl!}'))
                     as ImageProvider<Object>,

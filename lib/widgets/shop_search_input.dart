@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../shared/providers/shop_search_name_provider.dart';
+import '../providers/shop_search_name_provider.dart';
 
 class ShopSearchInput extends ConsumerWidget {
   const ShopSearchInput({super.key});

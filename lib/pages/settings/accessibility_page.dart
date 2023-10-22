@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../config/theme.dart';
-import '../../shared/providers/font_size_provider.dart';
-import '../../shared/providers/theme_mode_provider.dart';
+import '../../providers/font_size_provider.dart';
+import '../../providers/theme_mode_provider.dart';
 import '../../widgets/logo_app_bar.dart';
 import '../../widgets/scaled_icon.dart';
 

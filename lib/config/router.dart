@@ -5,7 +5,7 @@ import '../pages/login_page.dart';
 import '../pages/settings/accessibility_page.dart';
 import '../pages/shop_detail_page.dart';
 import '../pages/shop_reviews_page.dart';
-import '../shared/providers/user_provider.dart';
+import '../providers/user_provider.dart';
 
 final router = GoRouter(
   initialLocation: UserNotifier.isUserSet ? HomePage.path : LoginPage.path,

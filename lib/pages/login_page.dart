@@ -4,9 +4,9 @@ import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../config/theme.dart';
-import '../shared/providers/user_provider.dart';
-import '../shared/repositories/auth_repository.dart';
-import '../shared/utils/validators.dart';
+import '../providers/user_provider.dart';
+import '../repositories/auth_repository.dart';
+import '../utils/validators.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/buttons/button.dart';
 import 'home_page.dart';

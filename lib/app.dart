@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/router.dart';
 import 'config/theme.dart';
-import 'shared/providers/theme_mode_provider.dart';
+import 'providers/theme_mode_provider.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});

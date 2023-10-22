@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../shared/providers/shop_search_name_provider.dart';
-import '../../../shared/repositories/shop_repository.dart';
-import '../../../shared/utils/debouncer.dart';
+import '../../providers/shop_search_name_provider.dart';
+import '../../repositories/shop_repository.dart';
+import '../../utils/debouncer.dart';
 import '../loading/shop_card_skeleton.dart';
 import '../shop_card.dart';
 

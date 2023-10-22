@@ -66,14 +66,14 @@ Arara é um projeto em andamento, e algumas das funcionalidades descritas ainda 
   - [ ] Listagem de favoritos
   - [ ] Alterar senha
 - [ ] Configurações
-  - [ ] Configurações de acessibilidade
+  - [x] Configurações de acessibilidade
   - [ ] Configurações de notificação
   - [ ] Excluir conta
 - [ ] Suporte
   - [ ] Tutorial
   - [ ] Fale conosco
   - [ ] Sobre nós
-- [ ] Login
-  - [ ] Login por e-mail e senha
+- [x] Login
+  - [x] Login por e-mail e senha
   - [ ] Login pelo Google
   - [ ] Login pelo Facebook

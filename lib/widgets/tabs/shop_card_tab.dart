@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../providers/shop_search_name_provider.dart';
 import '../../repositories/shop_repository.dart';
@@ -29,10 +28,10 @@ class _ShopCardTabState extends ConsumerState<ShopCardTab> {
     final searchName = ref.read(shopSearchNameProvider);
 
     try {
-      shops = await GetIt.I<ShopRepository>().getShops(
-        type: widget.shopType,
-        name: searchName,
-      );
+      shops = await ref.read(shopRepositoryProvider).getShops(
+            type: widget.shopType,
+            name: searchName,
+          );
     } finally {
       setState(() => isLoading = false);
     }

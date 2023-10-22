@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../config/theme.dart';
@@ -38,7 +37,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     setState(() => isLoading = true);
 
     try {
-      final user = await GetIt.I<AuthRepository>().login(email, password);
+      final user =
+          await ref.read(authRepositoryProvider).login(email, password);
 
       final userNotifier = ref.read(userProvider.notifier);
       userNotifier.user = user;

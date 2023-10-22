@@ -10,7 +10,7 @@ final appThemeProvider = Provider<AppTheme>((ref) {
 });
 
 class AppTheme {
-  const AppTheme({this.fontSizeFactor = 1});
+  AppTheme({this.fontSizeFactor = 1});
 
   final double fontSizeFactor;
 
@@ -55,6 +55,17 @@ class AppTheme {
     color: black800,
   );
 
+  late final textTheme = TextTheme(
+    headlineMedium: headlineTextStyle,
+    bodySmall: bodyTextStyle.copyWith(fontSize: 12),
+    bodyMedium: bodyTextStyle,
+    bodyLarge: bodyTextStyle.copyWith(fontSize: 16),
+    labelSmall: labelTextStyle.copyWith(fontSize: 12),
+    labelMedium: labelTextStyle,
+  ).apply(
+    fontSizeFactor: fontSizeFactor,
+  );
+
   static const buttonMinimumSize = Size.fromHeight(56);
   static final borderRadius = BorderRadius.circular(24);
 
@@ -76,16 +87,7 @@ class AppTheme {
         iconTheme: const IconThemeData(
           color: secondary,
         ),
-        textTheme: TextTheme(
-          headlineMedium: headlineTextStyle,
-          bodySmall: bodyTextStyle.copyWith(fontSize: 12),
-          bodyMedium: bodyTextStyle,
-          bodyLarge: bodyTextStyle.copyWith(fontSize: 16),
-          labelSmall: labelTextStyle.copyWith(fontSize: 12),
-          labelMedium: labelTextStyle,
-        ).apply(
-          fontSizeFactor: fontSizeFactor,
-        ),
+        textTheme: textTheme,
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
             borderRadius: borderRadius,
@@ -93,8 +95,7 @@ class AppTheme {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            textStyle: const TextStyle(
-              fontSize: 16,
+            textStyle: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
             ),
             minimumSize: buttonMinimumSize,
@@ -115,7 +116,7 @@ class AppTheme {
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             foregroundColor: Colors.grey[600],
-            textStyle: const TextStyle(
+            textStyle: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
               decoration: TextDecoration.underline,
             ),
@@ -132,7 +133,7 @@ class AppTheme {
         appBarTheme: themeData.appBarTheme.copyWith(
           backgroundColor: Colors.grey[800],
         ),
-        textTheme: themeData.textTheme.apply(
+        textTheme: textTheme.apply(
           bodyColor: Colors.white,
           displayColor: Colors.white,
         ),
@@ -153,13 +154,14 @@ class AppTheme {
             minimumSize: buttonMinimumSize,
             side: BorderSide(color: Colors.grey[500]!),
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
-            textStyle: const TextStyle(fontWeight: FontWeight.w600),
+            textStyle:
+                textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             foregroundColor: Colors.grey[500],
-            textStyle: const TextStyle(
+            textStyle: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
               decoration: TextDecoration.underline,
             ),

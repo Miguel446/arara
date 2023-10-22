@@ -42,37 +42,36 @@ class _NewsCardTabState extends ConsumerState<NewsCardTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: AppTheme.pagePadding,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        child: isLoading
-            ? Column(
-                key: UniqueKey(),
-                children: List.filled(
-                  3,
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Skeleton(
-                      height: 200,
-                      width: double.infinity,
-                      borderRadius: AppTheme.borderRadius,
-                    ),
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: isLoading
+          ? ListView(
+              key: UniqueKey(),
+              padding: AppTheme.pagePadding,
+              children: List.filled(
+                3,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Skeleton(
+                    height: 200,
+                    width: double.infinity,
+                    borderRadius: AppTheme.borderRadius,
                   ),
                 ),
-              )
-            : Column(
-                key: UniqueKey(),
-                children: news
-                    .map(
-                      (news) => NewsCard(
-                        key: ValueKey(news.id),
-                        news,
-                      ),
-                    )
-                    .toList(),
               ),
-      ),
+            )
+          : ListView(
+              key: UniqueKey(),
+              padding: AppTheme.pagePadding,
+              children: news
+                  .map(
+                    (news) => NewsCard(
+                      key: ValueKey(news.id),
+                      news,
+                    ),
+                  )
+                  .toList(),
+            ),
     );
   }
 }

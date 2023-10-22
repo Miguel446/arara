@@ -71,6 +71,7 @@ class AppTheme {
 
   ThemeData get themeData => ThemeData(
         fontFamily: 'Inter',
+        useMaterial3: true,
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,
@@ -123,8 +124,22 @@ class AppTheme {
           ),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
           selectedItemColor: primary,
           unselectedItemColor: Colors.grey[400],
+        ),
+        tabBarTheme: TabBarTheme(
+          labelPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+          labelColor: textTheme.bodyMedium?.color,
+          dividerColor: Colors.grey,
+          indicatorSize: TabBarIndicatorSize.tab,
+          indicator: const UnderlineTabIndicator(
+            insets: EdgeInsets.fromLTRB(30, 0, 30, -1.5),
+            borderSide: BorderSide(
+              color: AppTheme.primary,
+              width: 3,
+            ),
+          ),
         ),
       );
 
@@ -175,6 +190,10 @@ class AppTheme {
         ),
         checkboxTheme: CheckboxThemeData(
           side: BorderSide(color: Colors.grey[500]!, width: 1.5),
+        ),
+        tabBarTheme: themeData.tabBarTheme.copyWith(
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.grey[500],
         ),
       );
 }

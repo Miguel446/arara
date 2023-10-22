@@ -9,43 +9,42 @@ class NewsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: SafeArea(
-        child: DefaultTabController(
-          length: 4,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const AppLogo(
+    return SafeArea(
+      child: DefaultTabController(
+        length: 4,
+        child: NestedScrollView(
+          physics: const BouncingScrollPhysics(),
+          headerSliverBuilder: (_, __) => [
+            const SliverToBoxAdapter(
+              child: AppLogo(
                 padding: EdgeInsets.only(top: 10),
               ),
-              //TabBar
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: TabBar(
-                  tabs: [
-                    Tab(text: 'Todas'),
-                    Tab(text: 'Notícias'),
-                    Tab(text: 'Artigos'),
-                    Tab(text: 'Destaques'),
-                  ],
-                ),
+            ),
+            SliverAppBar(
+              pinned: true,
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(-10),
+                child: Container(),
               ),
-              //TabBarView
-              SizedBox(
-                height: 800,
-                child: TabBarView(
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    const NewsCardTab(),
-                    const NewsCardTab(getHighlights: false),
-                    ArticleCardTab(),
-                    const NewsCardTab(getHighlights: true),
-                  ],
-                ),
-              )
+              surfaceTintColor: Colors.transparent,
+              flexibleSpace: const TabBar(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                tabs: [
+                  Tab(text: 'Todas'),
+                  Tab(text: 'Notícias'),
+                  Tab(text: 'Artigos'),
+                  Tab(text: 'Destaques'),
+                ],
+              ),
+            )
+          ],
+          body: TabBarView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              const NewsCardTab(),
+              const NewsCardTab(getHighlights: false),
+              ArticleCardTab(),
+              const NewsCardTab(getHighlights: true),
             ],
           ),
         ),

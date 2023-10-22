@@ -65,7 +65,7 @@ Arara is an ongoing project and some of the features described are still to be i
   - [ ] Favorites listing
   - [ ] Change password
 - [ ] Settings
-  - [ ] Accessibility settings
+  - [x] Accessibility settings
   - [ ] Notification settings
   - [ ] Delete account
 - [ ] Support

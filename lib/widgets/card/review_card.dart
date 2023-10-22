@@ -4,6 +4,7 @@ import '../../config/theme.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/review.dart';
 import '../image_carousel.dart';
+import '../scaled_icon.dart';
 
 class ReviewCard extends StatelessWidget {
   const ReviewCard(this.review, {super.key}) : hasBorder = false;
@@ -59,7 +60,7 @@ class ReviewCard extends StatelessWidget {
                     Row(
                       children: List.filled(
                         review.stars,
-                        const Icon(Icons.star, size: 14),
+                        const ScaledIcon(Icons.star, size: 14),
                       ),
                     ),
                     Text(

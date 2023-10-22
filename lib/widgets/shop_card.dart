@@ -6,6 +6,7 @@ import '../../shared/models/shop.dart';
 import '../pages/shop_detail_page.dart';
 import '../shared/extensions.dart';
 import 'image_carousel.dart';
+import 'scaled_icon.dart';
 
 class ShopCard extends StatelessWidget {
   final Shop shop;
@@ -30,24 +31,32 @@ class ShopCard extends StatelessWidget {
               margin: const EdgeInsets.only(top: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    shop.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Text(
+                      shop.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  const Spacer(),
-                  if (shop.averageRating != null) ...[
-                    const Icon(
-                      Icons.star,
-                      size: 17,
+                  if (shop.averageRating != null)
+                    Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 8),
+                          child: ScaledIcon(
+                            Icons.star,
+                            size: 17,
+                          ),
+                        ),
+                        Text(
+                          '${shop.averageRating}',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
-                    Text(
-                      '${shop.averageRating}',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ]
                 ],
               ),
             ),
@@ -64,13 +73,15 @@ class ShopCard extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                  Text(
-                    shop.type == ShopType.virtual
-                        ? shop.instagram!
-                        : shop.address!,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
+                  Expanded(
+                    child: Text(
+                      shop.type == ShopType.virtual
+                          ? shop.instagram!
+                          : shop.address!,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
                     ),
                   )
                 ],

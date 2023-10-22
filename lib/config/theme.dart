@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-abstract class AppTheme {
+import '../shared/providers/font_size_provider.dart';
+
+final appThemeProvider = Provider<AppTheme>((ref) {
+  final fontSizeFactor = ref.watch(fontSizeFactorProvider);
+
+  return AppTheme(fontSizeFactor: fontSizeFactor);
+});
+
+class AppTheme {
+  AppTheme({this.fontSizeFactor = 1});
+
+  final double fontSizeFactor;
+
   static const primary = MaterialColor(
     0xFFA071A0,
     <int, Color>{
@@ -42,10 +55,21 @@ abstract class AppTheme {
     color: black800,
   );
 
+  late final textTheme = TextTheme(
+    headlineMedium: headlineTextStyle,
+    bodySmall: bodyTextStyle.copyWith(fontSize: 12),
+    bodyMedium: bodyTextStyle,
+    bodyLarge: bodyTextStyle.copyWith(fontSize: 16),
+    labelSmall: labelTextStyle.copyWith(fontSize: 12),
+    labelMedium: labelTextStyle,
+  ).apply(
+    fontSizeFactor: fontSizeFactor,
+  );
+
   static const buttonMinimumSize = Size.fromHeight(56);
   static final borderRadius = BorderRadius.circular(24);
 
-  static ThemeData get themeData => ThemeData(
+  ThemeData get themeData => ThemeData(
         fontFamily: 'Inter',
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -63,13 +87,7 @@ abstract class AppTheme {
         iconTheme: const IconThemeData(
           color: secondary,
         ),
-        textTheme: TextTheme(
-          headlineMedium: headlineTextStyle,
-          bodySmall: bodyTextStyle.copyWith(fontSize: 12),
-          bodyMedium: bodyTextStyle,
-          labelSmall: labelTextStyle.copyWith(fontSize: 12),
-          labelMedium: labelTextStyle,
-        ),
+        textTheme: textTheme,
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
             borderRadius: borderRadius,
@@ -77,8 +95,7 @@ abstract class AppTheme {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            textStyle: const TextStyle(
-              fontSize: 16,
+            textStyle: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
             ),
             minimumSize: buttonMinimumSize,
@@ -99,7 +116,7 @@ abstract class AppTheme {
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             foregroundColor: Colors.grey[600],
-            textStyle: const TextStyle(
+            textStyle: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
               decoration: TextDecoration.underline,
             ),
@@ -111,12 +128,12 @@ abstract class AppTheme {
         ),
       );
 
-  static ThemeData get darkThemeData => themeData.copyWith(
+  ThemeData get darkThemeData => themeData.copyWith(
         scaffoldBackgroundColor: Colors.grey[800],
         appBarTheme: themeData.appBarTheme.copyWith(
           backgroundColor: Colors.grey[800],
         ),
-        textTheme: themeData.textTheme.apply(
+        textTheme: textTheme.apply(
           bodyColor: Colors.white,
           displayColor: Colors.white,
         ),
@@ -137,13 +154,14 @@ abstract class AppTheme {
             minimumSize: buttonMinimumSize,
             side: BorderSide(color: Colors.grey[500]!),
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
-            textStyle: const TextStyle(fontWeight: FontWeight.w600),
+            textStyle:
+                textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             foregroundColor: Colors.grey[500],
-            textStyle: const TextStyle(
+            textStyle: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
               decoration: TextDecoration.underline,
             ),

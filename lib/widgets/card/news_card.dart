@@ -16,7 +16,7 @@ class NewsCard extends StatelessWidget {
         );
 
     return Container(
-      height: 200,
+      constraints: const BoxConstraints(minHeight: 200),
       margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
         color: Colors.transparent,

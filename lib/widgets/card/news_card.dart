@@ -56,7 +56,7 @@ class NewsCard extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Text(
-              '${news.createdAt} | ${news.source}',
+              '${news.createdAt.toDateString()} | ${news.createdAt.toTimeString()} | ${news.source}',
               style: textTheme.bodySmall,
             )
           ],

@@ -1,9 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../repositories/article_repository.dart';
 import '../article_item_card.dart';
 
-class ArticleCardTab extends StatelessWidget {
-  ArticleCardTab({super.key});
+class ArticleCardTab extends ConsumerStatefulWidget {
+  const ArticleCardTab({super.key});
+
+  @override
+  ConsumerState<ArticleCardTab> createState() => _ArticleCardTabState();
+}
+
+class _ArticleCardTabState extends ConsumerState<ArticleCardTab> {
+  List<Article> _articles = [];
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    getArticles();
+  }
+
+  void getArticles() async {
+    setState(() => isLoading = true);
+
+    try {
+      _articles = await ref.read(articleRepositoryProvider).getArticles();
+    } finally {
+      setState(() => isLoading = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

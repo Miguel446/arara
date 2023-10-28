@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../config/theme.dart';
 import '../../repositories/article_repository.dart';
 import '../card/article_card.dart';
 
@@ -33,15 +34,14 @@ class _ArticleCardTabState extends ConsumerState<ArticleCardTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        children: articles
-            .map(
-              (article) => ArticleCard(article),
-            )
-            .toList(),
-      ),
+    return ListView(
+      key: UniqueKey(),
+      padding: AppTheme.pagePadding,
+      children: articles
+          .map(
+            (article) => ArticleCard(article),
+          )
+          .toList(),
     );
   }
 }

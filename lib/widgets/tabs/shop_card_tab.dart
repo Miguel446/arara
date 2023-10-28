@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/shop_search_name_provider.dart';
 import '../../repositories/shop_repository.dart';
 import '../../utils/debouncer.dart';
+import '../loading/lazy_list_view.dart';
 import '../loading/shop_card_skeleton.dart';
 import '../shop_card.dart';
 
@@ -47,23 +48,12 @@ class _ShopCardTabState extends ConsumerState<ShopCardTab> {
   Widget build(BuildContext context) {
     ref.listen(shopSearchNameProvider, (_, __) => debouncedGetShops.run());
 
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300),
-      child: isLoading
-          ? ListView(
-              key: UniqueKey(),
-              padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
-              children: List.filled(3, const ShopCardSkeleton()),
-            )
-          : ListView(
-              key: UniqueKey(),
-              padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
-              children: shops
-                  .map(
-                    (shop) => ShopCard(shop),
-                  )
-                  .toList(),
-            ),
+    return LazyListView(
+      isLoading: isLoading,
+      skeleton: const ShopCardSkeleton(),
+      items: shops,
+      itemBuilder: (shop) => ShopCard(shop),
+      padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:arara/widgets/loading/lazy_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -35,33 +36,19 @@ class _ArticleCardTabState extends ConsumerState<ArticleCardTab> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300),
-      child: isLoading
-          ? ListView(
-              key: UniqueKey(),
-              padding: AppTheme.pagePadding,
-              children: List.filled(
-                6,
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: Skeleton(
-                    height: 70,
-                    width: double.infinity,
-                    borderRadius: AppTheme.borderRadius,
-                  ),
-                ),
-              ),
-            )
-          : ListView(
-              key: UniqueKey(),
-              padding: AppTheme.pagePadding,
-              children: articles
-                  .map(
-                    (article) => ArticleCard(article),
-                  )
-                  .toList(),
-            ),
+    return LazyListView(
+      isLoading: isLoading,
+      skeletonQuantity: 6,
+      skeleton: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: Skeleton(
+          height: 70,
+          width: double.infinity,
+          borderRadius: AppTheme.borderRadius,
+        ),
+      ),
+      items: articles,
+      itemBuilder: (article) => ArticleCard(article),
     );
   }
 }

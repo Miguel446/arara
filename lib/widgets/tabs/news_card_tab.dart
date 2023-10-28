@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../config/theme.dart';
 import '../../repositories/news_repository.dart';
 import '../card/news_card.dart';
+import '../loading/lazy_list_view.dart';
 import '../loading/skeleton.dart';
 
 class NewsCardTab extends ConsumerStatefulWidget {
@@ -42,36 +43,18 @@ class _NewsCardTabState extends ConsumerState<NewsCardTab> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300),
-      child: isLoading
-          ? ListView(
-              key: UniqueKey(),
-              padding: AppTheme.pagePadding,
-              children: List.filled(
-                3,
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: Skeleton(
-                    height: 200,
-                    width: double.infinity,
-                    borderRadius: AppTheme.borderRadius,
-                  ),
-                ),
-              ),
-            )
-          : ListView(
-              key: UniqueKey(),
-              padding: AppTheme.pagePadding,
-              children: news
-                  .map(
-                    (news) => NewsCard(
-                      key: ValueKey(news.id),
-                      news,
-                    ),
-                  )
-                  .toList(),
-            ),
+    return LazyListView(
+      isLoading: isLoading,
+      skeleton: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: Skeleton(
+          height: 200,
+          width: double.infinity,
+          borderRadius: AppTheme.borderRadius,
+        ),
+      ),
+      items: news,
+      itemBuilder: (news) => NewsCard(news),
     );
   }
 }

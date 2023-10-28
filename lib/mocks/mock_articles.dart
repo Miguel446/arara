@@ -7,6 +7,7 @@ final mockArticles = [
     year: '2018',
     source: 'Brasil de Fato',
     author: 'Antônio Moura',
+    url: 'https://google.com',
   ),
   Article(
     id: '2',
@@ -15,6 +16,7 @@ final mockArticles = [
     year: '2020',
     source: 'LUME',
     author: 'Daniella Neumann',
+    url: 'https://google.com',
   ),
   Article(
     id: '3',
@@ -23,6 +25,7 @@ final mockArticles = [
     year: '2014',
     source: 'Repositorium',
     author: 'Mariana Araújo',
+    url: 'https://google.com',
   ),
   Article(
     id: '4',
@@ -31,6 +34,7 @@ final mockArticles = [
     year: '2020',
     source: 'IJBMKT',
     author: 'Veranise Debeux',
+    url: 'https://google.com',
   ),
   Article(
     id: '5',
@@ -39,6 +43,7 @@ final mockArticles = [
     year: '2011',
     source: 'Repertorium',
     author: 'Célia Ramos',
+    url: 'https://google.com',
   ),
   Article(
     id: '6',
@@ -46,5 +51,6 @@ final mockArticles = [
     year: '2020',
     source: 'PKP',
     author: 'Agatha Necchi',
+    url: 'https://google.com',
   ),
 ];

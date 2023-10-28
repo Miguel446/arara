@@ -4,6 +4,7 @@ class Article {
   final String year;
   final String source;
   final String author;
+  final String url;
 
   Article({
     required this.id,
@@ -11,5 +12,6 @@ class Article {
     required this.year,
     required this.source,
     required this.author,
+    required this.url,
   });
 }

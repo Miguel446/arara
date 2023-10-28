@@ -3,6 +3,20 @@ import 'package:flutter/material.dart';
 import '../buttons/button.dart';
 
 class AppDialog {
+  AppDialog.simple({
+    required this.context,
+    this.title,
+    this.text,
+    String buttonText = 'Ok',
+    required VoidCallback onButtonPressed,
+    ButtonType buttonType = ButtonType.elevated,
+  })  : rightButtonText = buttonText,
+        onRightButtonPressed = onButtonPressed,
+        rightButtonType = buttonType,
+        leftButtonText = null,
+        onLeftButtonPressed = null,
+        leftButtonType = ButtonType.outlined;
+
   const AppDialog.choice({
     required this.context,
     this.title,

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../config/theme.dart';
 import '../../repositories/article_repository.dart';
 import '../card/article_card.dart';
+import '../loading/skeleton.dart';
 
 class ArticleCardTab extends ConsumerStatefulWidget {
   const ArticleCardTab({super.key});
@@ -34,14 +35,33 @@ class _ArticleCardTabState extends ConsumerState<ArticleCardTab> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      key: UniqueKey(),
-      padding: AppTheme.pagePadding,
-      children: articles
-          .map(
-            (article) => ArticleCard(article),
-          )
-          .toList(),
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: isLoading
+          ? ListView(
+              key: UniqueKey(),
+              padding: AppTheme.pagePadding,
+              children: List.filled(
+                6,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Skeleton(
+                    height: 70,
+                    width: double.infinity,
+                    borderRadius: AppTheme.borderRadius,
+                  ),
+                ),
+              ),
+            )
+          : ListView(
+              key: UniqueKey(),
+              padding: AppTheme.pagePadding,
+              children: articles
+                  .map(
+                    (article) => ArticleCard(article),
+                  )
+                  .toList(),
+            ),
     );
   }
 }

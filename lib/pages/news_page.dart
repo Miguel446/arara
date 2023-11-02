@@ -38,13 +38,13 @@ class NewsPage extends StatelessWidget {
               ),
             )
           ],
-          body: TabBarView(
-            physics: const BouncingScrollPhysics(),
+          body: const TabBarView(
+            physics: BouncingScrollPhysics(),
             children: [
-              const NewsCardTab(),
-              const NewsCardTab(getHighlights: false),
+              NewsCardTab(),
+              NewsCardTab(getHighlights: false),
               ArticleCardTab(),
-              const NewsCardTab(getHighlights: true),
+              NewsCardTab(getHighlights: true),
             ],
           ),
         ),

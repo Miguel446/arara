@@ -71,7 +71,7 @@ class AppTheme {
 
   ThemeData get themeData => ThemeData(
         fontFamily: 'Inter',
-        useMaterial3: true,
+        useMaterial3: false,
         primarySwatch: primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,

@@ -10,7 +10,7 @@ final mockNews = [
     imageUrl: 'noticia1.png',
     url: 'https://google.com',
     isHighlight: true,
-    text: '''Câmaras e pneus como matéria-prima de moda? Sim, são.
+    content: '''Câmaras e pneus como matéria-prima de moda? Sim, são.
 
 Nas mãos habilidosas da designer Isabela Sales esses materiais são usados para a produção de calçados, carteiras, bolsas, brincos, cintos, entre outros que além de bonitos ajudam a dar um destino sustentável a o que, em geral, vira lixo.
 
@@ -31,7 +31,7 @@ A formalização da marca veio com o apoio do Sebrae no Pará. “Minha relaçã
     source: 'O Liberal',
     imageUrl: 'noticia2.png',
     isHighlight: false,
-    text: '''
+    content: '''
 Belém, Pará - Os talentosos designers de moda paraenses estão conquistando o cenário da moda sustentável, não apenas no Brasil, mas também internacionalmente. Com uma abordagem inovadora e compromisso com a sustentabilidade, suas criações únicas têm chamado a atenção de amantes da moda em todo o mundo.
 
 As coleções inspiradas na rica cultura amazônica e na natureza exuberante do Pará têm sido elogiadas por sua originalidade e pela utilização de materiais sustentáveis. A paixão por preservar o meio ambiente está no centro de cada peça, desde roupas até acessórios, e esse compromisso tem sido reconhecido com prêmios e convites para desfiles nas principais capitais da moda.
@@ -48,7 +48,7 @@ Com o crescente interesse por produtos sustentáveis e únicos, a moda paraense 
     createdAt: DateTime.now(),
     imageUrl: 'noticia3.png',
     isHighlight: false,
-    text: '''
+    content: '''
 Se você está em busca de roupas estilosas a preços acessíveis, está no lugar certo. A capital paraense oferece uma variedade de opções para quem procura por pechinchas na moda. Das feiras de rua aos brechós charmosos, Belém é um paraíso para caçadores de ofertas.
 
 Comprar roupas da moda sem quebrar o banco é mais fácil do que você imagina. Explore os mercados locais, onde você pode encontrar peças únicas e autênticas por preços incríveis. Os brechós da cidade também são uma ótima opção para garimpar roupas em bom estado a preços bastante acessíveis.

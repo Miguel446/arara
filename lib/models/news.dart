@@ -1,7 +1,7 @@
 class News {
   final String id;
   final String title;
-  final String? text;
+  final String content;
   final String source;
   final DateTime createdAt;
   final String? imageUrl;
@@ -11,7 +11,7 @@ class News {
   News({
     required this.id,
     required this.title,
-    this.text,
+    required this.content,
     required this.source,
     required this.createdAt,
     this.imageUrl,

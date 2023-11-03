@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../config/theme.dart';
 import '../providers/news_provider.dart';
@@ -19,7 +20,19 @@ class NewsDetailPage extends ConsumerWidget {
     final asyncNews = ref.watch(newsProvider(newsId));
 
     return Scaffold(
-      appBar: const LogoAppBar(),
+      appBar: LogoAppBar(
+        actions: [
+          asyncNews.maybeWhen(
+            data: (news) => news.url != null
+                ? IconButton(
+                    icon: const Icon(Icons.ios_share, size: 28),
+                    onPressed: () => Share.shareUri(Uri.parse(news.url!)),
+                  )
+                : const SizedBox.shrink(),
+            orElse: () => const SizedBox.shrink(),
+          ),
+        ],
+      ),
       body: asyncNews.when(
         data: (news) => ListView(
           padding: AppTheme.pagePadding,

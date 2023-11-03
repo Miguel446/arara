@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 import '../config/theme.dart';
+import '../utils/extensions.dart';
 
 class ImageCarousel extends StatelessWidget {
   const ImageCarousel(
@@ -23,7 +24,7 @@ class ImageCarousel extends StatelessWidget {
         autoPlayInterval: 0,
         children: imageUrls.map(
           (uri) {
-            if (uri.startsWith('http')) {
+            if (uri.isUrl) {
               return Image.network(
                 uri,
                 fit: BoxFit.cover,

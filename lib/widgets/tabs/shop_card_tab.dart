@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 
-import '../../../shared/providers/shop_search_name_provider.dart';
-import '../../../shared/repositories/shop_repository.dart';
-import '../../../shared/utils/debouncer.dart';
+import '../../providers/shop_search_name_provider.dart';
+import '../../repositories/shop_repository.dart';
+import '../../utils/debouncer.dart';
+import '../loading/lazy_list_view.dart';
 import '../loading/shop_card_skeleton.dart';
 import '../shop_card.dart';
 
@@ -29,10 +29,10 @@ class _ShopCardTabState extends ConsumerState<ShopCardTab> {
     final searchName = ref.read(shopSearchNameProvider);
 
     try {
-      shops = await GetIt.I<ShopRepository>().getShops(
-        type: widget.shopType,
-        name: searchName,
-      );
+      shops = await ref.read(shopRepositoryProvider).getShops(
+            type: widget.shopType,
+            name: searchName,
+          );
     } finally {
       setState(() => isLoading = false);
     }
@@ -48,23 +48,12 @@ class _ShopCardTabState extends ConsumerState<ShopCardTab> {
   Widget build(BuildContext context) {
     ref.listen(shopSearchNameProvider, (_, __) => debouncedGetShops.run());
 
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300),
-      child: isLoading
-          ? ListView(
-              key: UniqueKey(),
-              padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
-              children: List.filled(3, const ShopCardSkeleton()),
-            )
-          : ListView(
-              key: UniqueKey(),
-              padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
-              children: shops
-                  .map(
-                    (shop) => ShopCard(shop),
-                  )
-                  .toList(),
-            ),
+    return LazyListView(
+      isLoading: isLoading,
+      skeleton: const ShopCardSkeleton(),
+      items: shops,
+      itemBuilder: (shop) => ShopCard(shop),
+      padding: const EdgeInsets.fromLTRB(20, 25, 20, 50),
     );
   }
 }

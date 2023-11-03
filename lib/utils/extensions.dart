@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:diacritic/diacritic.dart';
+import 'package:intl/intl.dart';
 
 extension StringExtension on String {
   String toLowerCaseWithNoDiacritics() {
@@ -9,6 +10,11 @@ extension StringExtension on String {
 
   String withId(String id) {
     return replaceFirst(':id', id);
+  }
+
+  // TODO: Remove this getter when all images are fetched from the API
+  bool get isUrl {
+    return startsWith('http');
   }
 }
 
@@ -48,4 +54,8 @@ extension DateTimeExtension on DateTime {
       return 'Agora';
     }
   }
+
+  String toDateString() => DateFormat('dd/MM/yyyy').format(this);
+
+  String toTimeString() => DateFormat('HH:mm').format(this);
 }

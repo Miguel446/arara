@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../config/theme.dart';
-import '../shared/extensions.dart';
-import '../shared/models/shop.dart';
-import '../shared/providers/shop_provider.dart';
+import '../utils/extensions.dart';
+import '../models/shop.dart';
+import '../providers/shop_provider.dart';
 import '../widgets/card/review_card.dart';
 import '../widgets/error_message.dart';
 import '../widgets/image_carousel.dart';

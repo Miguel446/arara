@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/models/shop.dart';
+import '../../models/shop.dart';
 import '../widgets/home_header.dart';
 import '../widgets/tabs/shop_card_tab.dart';
 

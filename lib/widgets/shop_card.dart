@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../shared/models/shop.dart';
+import '../../models/shop.dart';
 import '../pages/shop_detail_page.dart';
-import '../shared/extensions.dart';
+import '../utils/extensions.dart';
 import 'image_carousel.dart';
 import 'scaled_icon.dart';
 

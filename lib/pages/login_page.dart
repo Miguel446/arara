@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../config/theme.dart';
-import '../shared/providers/user_provider.dart';
-import '../shared/repositories/auth_repository.dart';
-import '../shared/utils/validators.dart';
+import '../providers/user_provider.dart';
+import '../repositories/auth_repository.dart';
+import '../utils/validators.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/buttons/button.dart';
 import 'home_page.dart';
@@ -38,7 +37,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     setState(() => isLoading = true);
 
     try {
-      final user = await GetIt.I<AuthRepository>().login(email, password);
+      final user =
+          await ref.read(authRepositoryProvider).login(email, password);
 
       final userNotifier = ref.read(userProvider.notifier);
       userNotifier.user = user;

@@ -10,42 +10,28 @@ class HomeHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SliverToBoxAdapter(
+    return const SliverToBoxAdapter(
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              const AppLogo(
+              AppLogo(
                 padding: EdgeInsets.symmetric(vertical: 10),
               ),
-              const ShopSearchInput(),
-              const SizedBox(height: 10),
-              Stack(
-                children: [
-                  Container(
-                    transform: Matrix4.translationValues(0, 38.45, 0),
-                    child: const Divider(
-                      thickness: 1.2,
-                      color: Colors.grey,
-                    ),
+              ShopSearchInput(),
+              SizedBox(height: 10),
+              TabBar(
+                indicator: UnderlineTabIndicator(
+                  insets: EdgeInsets.fromLTRB(70, 0, 70, -1.5),
+                  borderSide: BorderSide(
+                    color: AppTheme.primary,
+                    width: 3,
                   ),
-                  TabBar(
-                    labelColor: Theme.of(context).textTheme.bodyMedium?.color,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    indicator: const UnderlineTabIndicator(
-                      insets: EdgeInsets.symmetric(horizontal: 70),
-                      borderSide: BorderSide(
-                        color: AppTheme.primary,
-                        width: 3,
-                        style: BorderStyle.solid,
-                      ),
-                    ),
-                    tabs: const [
-                      Tab(text: 'Espaços físicos'),
-                      Tab(text: 'Espaços virtuais'),
-                    ],
-                  )
+                ),
+                tabs: [
+                  Tab(text: 'Espaços físicos'),
+                  Tab(text: 'Espaços virtuais'),
                 ],
               ),
             ],

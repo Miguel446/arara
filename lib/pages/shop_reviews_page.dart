@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../config/theme.dart';
-import '../shared/models/shop.dart';
-import '../shared/providers/shop_provider.dart';
+import '../models/shop.dart';
+import '../providers/shop_provider.dart';
 import '../widgets/card/review_card.dart';
 import '../widgets/error_message.dart';
 

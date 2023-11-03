@@ -1,8 +1,12 @@
-import '../extensions.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../utils/extensions.dart';
 import '../mocks/mock_shops.dart';
 import '../models/shop.dart';
 
 export '../models/shop.dart';
+
+final shopRepositoryProvider = Provider((ref) => ShopRepository());
 
 class ShopRepository {
   Future<List<Shop>> getShops({String? name, ShopType? type}) async {

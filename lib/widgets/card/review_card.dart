@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../config/theme.dart';
-import '../../shared/extensions.dart';
-import '../../shared/models/review.dart';
+import '../../utils/extensions.dart';
+import '../../models/review.dart';
 import '../image_carousel.dart';
 import '../scaled_icon.dart';
 

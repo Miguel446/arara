@@ -1,4 +1,4 @@
-import '../extensions.dart';
+import '../utils/extensions.dart';
 import '../models/shop.dart';
 import 'mock_reviews.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../shared/providers/font_size_provider.dart';
+import '../providers/font_size_provider.dart';
 
 class ScaledIcon extends ConsumerWidget {
   const ScaledIcon(

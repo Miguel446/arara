@@ -1,57 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../widgets/app_logo.dart';
-import '../widgets/review_item.dart';
-import '../widgets/see_more_item.dart';
+import '../config/theme.dart';
+import '../providers/reviews_provider.dart';
+import '../widgets/card/review_card.dart';
+import '../widgets/error_message.dart';
+import '../widgets/logo_app_bar.dart';
 
-class ReviewsPage extends StatelessWidget {
+class ReviewsPage extends ConsumerWidget {
   const ReviewsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: SafeArea(
-          child: Padding(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final reviews = ref.watch(reviewsProvider);
+
+    return Scaffold(
+      appBar: const LogoAppBar(),
+      body: Column(
+        children: [
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppLogo(
-                  padding: EdgeInsets.only(top: 10),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Avaliações',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
+                Text(
+                  'Avaliações',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
-                Divider(
-                  thickness: 1,
-                  color: Colors.grey,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                ReviewItem(imgPathList: [
-                  'assets/brecho3.png',
-                  'assets/brecho32.jpeg',
-                  'assets/brecho33.jpeg'
-                ], title: 'Brechó Stylus'),
-                ReviewItem(imgPathList: [
-                  'assets/brecho2.png',
-                  'assets/brecho22.jpeg',
-                  'assets/brecho23.jpeg'
-                ], title: 'Brechó de Elite'),
-                SeeMoreItem(
-                  marginBottom: 100,
-                ),
+                Divider(),
               ],
             ),
           ),
-        ));
+          Expanded(
+            child: reviews.when(
+              data: (reviews) => ReviewsPageBody(reviews),
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (_, __) => const ErrorMessage(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ReviewsPageBody extends StatelessWidget {
+  const ReviewsPageBody(this.reviews, {super.key});
+
+  final List<Review> reviews;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: AppTheme.pagePadding.copyWith(top: 20, bottom: 70),
+      itemCount: reviews.length,
+      itemBuilder: (_, index) => Column(
+        children: [
+          ReviewCard(reviews[index]),
+          if (index != reviews.length - 1) const Divider(),
+        ],
+      ),
+    );
   }
 }

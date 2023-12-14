@@ -57,6 +57,7 @@ class AppTheme {
 
   late final textTheme = TextTheme(
     headlineMedium: headlineTextStyle,
+    headlineLarge: headlineTextStyle.copyWith(fontSize: 20),
     bodySmall: bodyTextStyle.copyWith(fontSize: 12),
     bodyMedium: bodyTextStyle,
     bodyLarge: bodyTextStyle.copyWith(fontSize: 16),

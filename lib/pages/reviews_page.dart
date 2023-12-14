@@ -18,19 +18,16 @@ class ReviewsPage extends ConsumerWidget {
       appBar: const LogoAppBar(),
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Avaliações',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                Divider(),
+                const Divider(),
               ],
             ),
           ),

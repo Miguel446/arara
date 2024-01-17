@@ -13,8 +13,13 @@ mixin DebouncedShopSearchMixin<T extends ConsumerStatefulWidget>
     action: () => getShops(name: shopName, type: shopType),
   );
 
-  String? get shopName;
-  ShopType? get shopType;
+  /// The name which will be used to filter the shops. Override this getter
+  /// to change the default value.
+  String? get shopName => null;
+
+  /// The type which will be used to filter the shops. Override this getter
+  /// to change the default value.
+  ShopType? get shopType => null;
 
   Future<void> getShops({String? name, ShopType? type}) async {
     setState(() => isLoading = true);

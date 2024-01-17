@@ -6,6 +6,7 @@ import '../providers/reviews_provider.dart';
 import '../widgets/card/review_card.dart';
 import '../widgets/error_message.dart';
 import '../widgets/logo_app_bar.dart';
+import '../widgets/shop_search_dropdown.dart';
 
 class ReviewsPage extends ConsumerWidget {
   const ReviewsPage({super.key});
@@ -27,7 +28,8 @@ class ReviewsPage extends ConsumerWidget {
                   'Avaliações',
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                const Divider(),
+                const SizedBox(height: 16),
+                const ShopSearchDropdown(),
               ],
             ),
           ),

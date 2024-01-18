@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../mocks/mock_reviews.dart';
-import '../mocks/mock_shops.dart';
 import '../models/review.dart';
+import '../utils/extensions.dart';
 
 export '../models/review.dart';
 
@@ -15,9 +15,6 @@ class ReviewRepository {
     if (shopId == null) {
       return mockReviews;
     }
-    return [...mockPhysicalShops, ...mockVirtualShops]
-            .firstWhere((shop) => shop.id == shopId)
-            .reviews ??
-        [];
+    return mockReviews.getRandomSubset();
   }
 }

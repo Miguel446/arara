@@ -4,9 +4,11 @@ import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../config/theme.dart';
-import '../utils/extensions.dart';
 import '../models/shop.dart';
+import '../providers/reviews_provider.dart';
 import '../providers/shop_provider.dart';
+import '../providers/shop_with_reviews_provider.dart';
+import '../utils/extensions.dart';
 import '../widgets/card/review_card.dart';
 import '../widgets/error_message.dart';
 import '../widgets/image_carousel.dart';
@@ -23,32 +25,32 @@ class ShopDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncShop = ref.watch(shopProvider(shopId));
+    final asyncData = ref.watch(shopWithReviewsProvider(shopId));
 
     return Scaffold(
       appBar: const LogoAppBar(),
-      body: shop is Shop
-          ? ShopDetailPageBody(shop as Shop)
-          : asyncShop.when(
-              data: (shop) => ShopDetailPageBody(shop),
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error: (_, __) => ErrorMessage(
-                message: 'Erro ao carregar brechó',
-                onRetry: () => ref.refresh(shopProvider(shopId)),
-              ),
-              skipLoadingOnRefresh: false,
-            ),
+      body: asyncData.when(
+        data: (data) => ShopDetailPageBody(data.shop, data.reviews),
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (_, __) => ErrorMessage(
+          message: 'Erro ao carregar brechó',
+          onRetry: () => ref.refresh(shopProvider(shopId)),
+        ),
+        skipLoadingOnRefresh: false,
+      ),
     );
   }
 }
 
 class ShopDetailPageBody extends StatelessWidget {
   const ShopDetailPageBody(
-    this.shop, {
+    this.shop,
+    this.reviews, {
     super.key,
   });
 
   final Shop shop;
+  final List<Review> reviews;
 
   @override
   Widget build(BuildContext context) {
@@ -66,11 +68,11 @@ class ShopDetailPageBody extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
-          if (shop.averageRating != null && shop.reviews?.length != null)
+          if (shop.averageRating != null)
             _IconText(
               Icons.star,
               '${shop.averageRating} | '
-              '${shop.reviews!.length.withUnit('avaliação', 'avaliações')}',
+              '${reviews.length.withUnit('avaliação', 'avaliações')}',
             ),
           if (shop.address != null)
             _IconText(
@@ -96,24 +98,24 @@ class ShopDetailPageBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 24),
               child: Divider(),
             ),
-            ...shop.perks!.map((perk) => _PerkTile(perk)).toList(),
+            ...shop.perks!.map((perk) => _PerkTile(perk)),
           ],
 
           // Avaliações
-          if (shop.reviews?.isNotEmpty == true) ...[
+          if (reviews.isNotEmpty == true) ...[
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 24),
               child: Divider(),
             ),
-            ReviewCard.border(shop.reviews![0]),
-            if (shop.reviews!.length > 1)
+            ReviewCard.border(reviews[0]),
+            if (reviews.length > 1)
               TextButton(
                 onPressed: () => context.push(
                   ShopReviewsPage.path.withId(shop.id),
-                  extra: shop,
+                  extra: (shop: shop, reviews: reviews),
                 ),
                 child: Text(
-                  'Mostrar todas as ${shop.reviews!.length} avaliações',
+                  'Mostrar todas as ${reviews.length} avaliações',
                 ),
               ),
           ],

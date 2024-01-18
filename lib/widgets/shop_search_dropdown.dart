@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../mixins/debounced_shop_search_mixin.dart';
+import '../models/shop.dart';
 
 class ShopSearchDropdown extends ConsumerStatefulWidget {
-  final ValueChanged<String?>? onSelected;
+  final ValueChanged<Shop?>? onSelected;
 
   const ShopSearchDropdown({
     super.key,
@@ -51,14 +52,16 @@ class _ShopSearchDropdownState extends ConsumerState<ShopSearchDropdown>
         onSelected: (value) {
           FocusScope.of(context).unfocus();
 
+          Shop? shop;
           if (selectedId == value) {
             selectedId = null;
             textController.clear();
           } else {
             selectedId = value;
+            shop = shops.firstWhere((shop) => shop.id == selectedId);
           }
 
-          widget.onSelected?.call(selectedId);
+          widget.onSelected?.call(shop);
         },
       ),
     );

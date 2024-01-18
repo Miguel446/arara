@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../config/theme.dart';
+import '../models/shop.dart';
 import '../providers/reviews_provider.dart';
 import '../widgets/card/review_card.dart';
 import '../widgets/error_message.dart';
@@ -16,11 +17,11 @@ class ReviewsPage extends ConsumerStatefulWidget {
 }
 
 class _ReviewsPageState extends ConsumerState<ReviewsPage> {
-  String? selectedShopId;
+  Shop? selectedShop;
 
   @override
   Widget build(BuildContext context) {
-    final reviews = ref.watch(reviewsProvider(selectedShopId));
+    final reviews = ref.watch(reviewsProvider(selectedShop?.id));
 
     return Scaffold(
       appBar: const LogoAppBar(),
@@ -37,7 +38,7 @@ class _ReviewsPageState extends ConsumerState<ReviewsPage> {
                 ),
                 const SizedBox(height: 16),
                 ShopSearchDropdown(
-                  onSelected: (value) => setState(() => selectedShopId = value),
+                  onSelected: (value) => setState(() => selectedShop = value),
                 ),
               ],
             ),

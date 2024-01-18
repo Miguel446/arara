@@ -5,6 +5,6 @@ import '../repositories/review_repository.dart';
 export '../models/review.dart';
 
 final reviewsProvider =
-    FutureProvider.autoDispose.family<List<Review>, String?>((ref, shopId) {
+    FutureProvider.autoDispose.family<Reviews, String?>((ref, shopId) {
   return ref.watch(reviewRepositoryProvider).getReviews(shopId);
 });

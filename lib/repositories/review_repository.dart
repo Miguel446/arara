@@ -9,7 +9,7 @@ export '../models/review.dart';
 final reviewRepositoryProvider = Provider((ref) => ReviewRepository());
 
 class ReviewRepository {
-  Future<List<Review>> getReviews([String? shopId]) async {
+  Future<Reviews> getReviews([String? shopId]) async {
     await Future.delayed(const Duration(milliseconds: 300));
 
     if (shopId == null) {

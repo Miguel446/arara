@@ -50,7 +50,7 @@ class ShopDetailPageBody extends StatelessWidget {
   });
 
   final Shop shop;
-  final List<Review> reviews;
+  final Reviews reviews;
 
   @override
   Widget build(BuildContext context) {

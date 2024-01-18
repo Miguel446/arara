@@ -62,7 +62,7 @@ class _ReviewsPageState extends ConsumerState<ReviewsPage> {
 class ReviewsPageBody extends StatelessWidget {
   const ReviewsPageBody(this.reviews, {this.shop, super.key});
 
-  final List<Review> reviews;
+  final Reviews reviews;
   final Shop? shop;
 
   @override

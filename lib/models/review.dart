@@ -1,5 +1,7 @@
 import 'user.dart';
 
+typedef Reviews = List<Review>;
+
 class Review {
   final String id;
   final User user;

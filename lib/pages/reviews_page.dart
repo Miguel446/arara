@@ -8,12 +8,19 @@ import '../widgets/error_message.dart';
 import '../widgets/logo_app_bar.dart';
 import '../widgets/shop_search_dropdown.dart';
 
-class ReviewsPage extends ConsumerWidget {
+class ReviewsPage extends ConsumerStatefulWidget {
   const ReviewsPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final reviews = ref.watch(reviewsProvider);
+  ConsumerState<ReviewsPage> createState() => _ReviewsPageState();
+}
+
+class _ReviewsPageState extends ConsumerState<ReviewsPage> {
+  String? selectedShopId;
+
+  @override
+  Widget build(BuildContext context) {
+    final reviews = ref.watch(reviewsProvider(selectedShopId));
 
     return Scaffold(
       appBar: const LogoAppBar(),
@@ -29,7 +36,9 @@ class ReviewsPage extends ConsumerWidget {
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 const SizedBox(height: 16),
-                const ShopSearchDropdown(),
+                ShopSearchDropdown(
+                  onSelected: (value) => setState(() => selectedShopId = value),
+                ),
               ],
             ),
           ),

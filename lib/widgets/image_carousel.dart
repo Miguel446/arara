@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
@@ -25,8 +26,8 @@ class ImageCarousel extends StatelessWidget {
         children: imageUrls.map(
           (uri) {
             if (uri.isUrl) {
-              return Image.network(
-                uri,
+              return CachedNetworkImage(
+                imageUrl: uri,
                 fit: BoxFit.cover,
               );
             }

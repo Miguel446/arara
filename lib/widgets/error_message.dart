@@ -23,12 +23,16 @@ class ErrorMessage extends StatelessWidget {
             Text(
               message,
               style: Theme.of(context).textTheme.headlineMedium,
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: onRetry,
-              child: const Text('Tentar novamente'),
-            ),
+            if (onRetry != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: ElevatedButton(
+                  onPressed: onRetry,
+                  child: const Text('Tentar novamente'),
+                ),
+              ),
           ],
         ),
       ),

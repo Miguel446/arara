@@ -45,7 +45,10 @@ class _ReviewsPageState extends ConsumerState<ReviewsPage> {
           ),
           Expanded(
             child: reviews.when(
-              data: (reviews) => ReviewsPageBody(reviews),
+              data: (reviews) => ReviewsPageBody(
+                reviews,
+                shop: selectedShop,
+              ),
               loading: () => const Center(child: CircularProgressIndicator()),
               error: (_, __) => const ErrorMessage(),
             ),
@@ -57,12 +60,20 @@ class _ReviewsPageState extends ConsumerState<ReviewsPage> {
 }
 
 class ReviewsPageBody extends StatelessWidget {
-  const ReviewsPageBody(this.reviews, {super.key});
+  const ReviewsPageBody(this.reviews, {this.shop, super.key});
 
   final List<Review> reviews;
+  final Shop? shop;
 
   @override
   Widget build(BuildContext context) {
+    if (reviews.isEmpty) {
+      return ErrorMessage(
+        message: shop?.name != null
+            ? '${shop!.name} ainda não possui avaliações'
+            : 'Ainda não há avaliações',
+      );
+    }
     return ListView.builder(
       padding: AppTheme.pagePadding.copyWith(top: 20, bottom: 70),
       itemCount: reviews.length,

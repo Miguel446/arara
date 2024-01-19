@@ -49,9 +49,9 @@ final List<Shop> mockPhysicalShops = [
 final List<Shop> mockVirtualShops = [
   const Shop(
     id: '4',
-    name: 'Pinguinho Brechó Space',
+    name: 'Retrô Roupas & Relíquias',
     type: ShopType.virtual,
-    instagram: 'pinguinho_brecho_space',
+    instagram: 'retro_roupas_reliquias',
     openingHours: 'Seg. a Sex. - 08:00 às 18:00',
     imageUrls: [
       'assets/brecho.png',
@@ -62,9 +62,9 @@ final List<Shop> mockVirtualShops = [
   ),
   const Shop(
     id: '5',
-    name: 'Brechó de Elite',
+    name: 'Vintage Veste Bem',
     type: ShopType.virtual,
-    instagram: 'brecho_elite',
+    instagram: 'vintage.veste.bem',
     phone: '(91) 98337-5857',
     openingHours: 'Seg. a Sab. - 09:00 às 18:00',
     averageRating: 5.0,
@@ -76,9 +76,9 @@ final List<Shop> mockVirtualShops = [
   ),
   const Shop(
     id: '6',
-    name: 'Brechó Stylus',
+    name: 'Segunda Chance Fashion',
     type: ShopType.virtual,
-    instagram: 'stylus_brecho',
+    instagram: '2chancefashion',
     openingHours: 'Seg. a Sab. - 08:00 às 18:00',
     phone: '(91) 3212-0413',
     imageUrls: [

@@ -1,57 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../widgets/app_logo.dart';
-import '../widgets/review_item.dart';
-import '../widgets/see_more_item.dart';
+import '../config/theme.dart';
+import '../models/shop.dart';
+import '../providers/reviews_provider.dart';
+import '../widgets/card/review_card.dart';
+import '../widgets/error_message.dart';
+import '../widgets/logo_app_bar.dart';
+import '../widgets/shop_search_dropdown.dart';
 
-class ReviewsPage extends StatelessWidget {
+class ReviewsPage extends ConsumerStatefulWidget {
   const ReviewsPage({super.key});
 
   @override
+  ConsumerState<ReviewsPage> createState() => _ReviewsPageState();
+}
+
+class _ReviewsPageState extends ConsumerState<ReviewsPage> {
+  Shop? selectedShop;
+
+  @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+    final reviews = ref.watch(reviewsProvider(selectedShop?.id));
+
+    return Scaffold(
+      appBar: const LogoAppBar(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppLogo(
-                  padding: EdgeInsets.only(top: 10),
+                Text(
+                  'Avaliações',
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Avaliações',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  ),
-                ),
-                Divider(
-                  thickness: 1,
-                  color: Colors.grey,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                ReviewItem(imgPathList: [
-                  'assets/brecho3.png',
-                  'assets/brecho32.jpeg',
-                  'assets/brecho33.jpeg'
-                ], title: 'Brechó Stylus'),
-                ReviewItem(imgPathList: [
-                  'assets/brecho2.png',
-                  'assets/brecho22.jpeg',
-                  'assets/brecho23.jpeg'
-                ], title: 'Brechó de Elite'),
-                SeeMoreItem(
-                  marginBottom: 100,
+                const SizedBox(height: 16),
+                ShopSearchDropdown(
+                  onSelected: (value) => setState(() => selectedShop = value),
                 ),
               ],
             ),
           ),
-        ));
+          Expanded(
+            child: reviews.when(
+              data: (reviews) => ReviewsPageBody(
+                reviews,
+                shop: selectedShop,
+              ),
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (_, __) => const ErrorMessage(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ReviewsPageBody extends StatelessWidget {
+  const ReviewsPageBody(this.reviews, {this.shop, super.key});
+
+  final Reviews reviews;
+  final Shop? shop;
+
+  @override
+  Widget build(BuildContext context) {
+    if (reviews.isEmpty) {
+      return ErrorMessage(
+        message: shop?.name != null
+            ? '${shop!.name} ainda não possui avaliações'
+            : 'Ainda não há avaliações',
+      );
+    }
+    return ListView.builder(
+      padding: AppTheme.pagePadding.copyWith(top: 20, bottom: 70),
+      itemCount: reviews.length,
+      itemBuilder: (_, index) => Column(
+        children: [
+          ReviewCard(
+            reviews[index],
+            showShopName: true,
+          ),
+          if (index != reviews.length - 1) const Divider(),
+        ],
+      ),
+    );
   }
 }

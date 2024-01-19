@@ -57,6 +57,7 @@ class AppTheme {
 
   late final textTheme = TextTheme(
     headlineMedium: headlineTextStyle,
+    headlineLarge: headlineTextStyle.copyWith(fontSize: 20),
     bodySmall: bodyTextStyle.copyWith(fontSize: 12),
     bodyMedium: bodyTextStyle,
     bodyLarge: bodyTextStyle.copyWith(fontSize: 16),
@@ -68,6 +69,25 @@ class AppTheme {
 
   static const buttonMinimumSize = Size.fromHeight(56);
   static final borderRadius = BorderRadius.circular(24);
+
+  static final lightInputDecorationTheme = InputDecorationTheme(
+    border: OutlineInputBorder(
+      borderRadius: borderRadius,
+    ),
+  );
+
+  static final darkInputDecorationTheme = lightInputDecorationTheme.copyWith(
+    enabledBorder: OutlineInputBorder(
+      borderRadius: borderRadius,
+      borderSide: BorderSide(color: Colors.grey[500]!),
+    ),
+    iconColor: Colors.grey[500],
+    suffixIconColor: Colors.grey[500],
+    prefixIconColor: Colors.grey[500],
+    floatingLabelStyle: const TextStyle(color: primary),
+    labelStyle: TextStyle(color: Colors.grey[500]),
+    hintStyle: TextStyle(color: Colors.grey[500]),
+  );
 
   ThemeData get themeData => ThemeData(
         fontFamily: 'Inter',
@@ -89,10 +109,9 @@ class AppTheme {
           color: secondary,
         ),
         textTheme: textTheme,
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: borderRadius,
-          ),
+        inputDecorationTheme: lightInputDecorationTheme,
+        dropdownMenuTheme: DropdownMenuThemeData(
+          inputDecorationTheme: lightInputDecorationTheme,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -163,6 +182,9 @@ class AppTheme {
           floatingLabelStyle: const TextStyle(color: primary),
           labelStyle: TextStyle(color: Colors.grey[500]),
           hintStyle: TextStyle(color: Colors.grey[500]),
+        ),
+        dropdownMenuTheme: DropdownMenuThemeData(
+          inputDecorationTheme: darkInputDecorationTheme,
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../config/theme.dart';
+import '../models/review.dart';
 import '../models/shop.dart';
-import '../providers/shop_provider.dart';
+import '../providers/shop_with_reviews_provider.dart';
 import '../widgets/card/review_card.dart';
 import '../widgets/error_message.dart';
 
@@ -16,10 +17,10 @@ class ShopReviewsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncShop = ref.watch(shopProvider(shopId));
+    final asyncData = ref.watch(shopWithReviewsProvider(shopId));
 
-    return asyncShop.when(
-      data: (shop) => ShopReviewsPageBody(shop),
+    return asyncData.when(
+      data: (data) => ShopReviewsPageBody(data.shop, data.reviews),
       loading: () => const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       ),
@@ -29,9 +30,10 @@ class ShopReviewsPage extends ConsumerWidget {
 }
 
 class ShopReviewsPageBody extends StatelessWidget {
-  const ShopReviewsPageBody(this.shop, {super.key});
+  const ShopReviewsPageBody(this.shop, this.reviews, {super.key});
 
   final Shop shop;
+  final Reviews reviews;
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +45,11 @@ class ShopReviewsPageBody extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: AppTheme.pagePadding.copyWith(top: 20),
-        itemCount: shop.reviews?.length ?? 0,
+        itemCount: reviews.length,
         itemBuilder: (_, index) => Column(
           children: [
-            ReviewCard(shop.reviews![index]),
-            if (index != shop.reviews!.length - 1) const Divider(),
+            ReviewCard(reviews[index]),
+            if (index != reviews.length - 1) const Divider(),
           ],
         ),
       ),

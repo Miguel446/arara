@@ -20,10 +20,7 @@ class AccountMenuTitle extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: Text(
           title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
       ),
     );

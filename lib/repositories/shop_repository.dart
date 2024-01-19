@@ -12,7 +12,7 @@ class ShopRepository {
   Future<List<Shop>> getShops({String? name, ShopType? type}) async {
     await Future.delayed(const Duration(milliseconds: 300));
 
-    List<Shop> shops = [...mockPhysicalShops, ...mockVirtualShops];
+    List<Shop> shops = mockShops;
 
     if (name != null) {
       shops = shops
@@ -32,8 +32,7 @@ class ShopRepository {
   Future<Shop> getShopById(String id) async {
     await Future.delayed(const Duration(milliseconds: 300));
 
-    final shop = [...mockPhysicalShops, ...mockVirtualShops]
-        .firstWhere((shop) => shop.id == id);
+    final shop = mockShops.firstWhere((shop) => shop.id == id);
 
     return shop;
   }

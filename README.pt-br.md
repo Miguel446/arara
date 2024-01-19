@@ -54,12 +54,12 @@ Arara é um projeto em andamento, e algumas das funcionalidades descritas ainda 
 - [ ] Mapas
   - [ ] Explorar brechós em um mapa interativo
   - [ ] Exibir a localização do brechó na página de detalhes
-- [ ] Notícias e Artigos
-  - [ ] Detalhes das notícias
-  - [ ] Botão para compartilhar o link da notícia
-  - [ ] Redirecionar os usuários para o artigo de pesquisa ao tocar no item
+- [x] Notícias e Artigos
+  - [x] Detalhes das notícias
+  - [x] Botão para compartilhar o link da notícia
+  - [x] Redirecionar os usuários para o artigo de pesquisa ao tocar no item
 - [ ] Avaliações
-  - [ ] Listar avaliações recentes
+  - [x] Listar avaliações recentes
   - [ ] Deixar uma avaliação
 - [ ] Perfil
   - [ ] Edição de perfil

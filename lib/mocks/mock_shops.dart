@@ -1,9 +1,7 @@
-import '../utils/extensions.dart';
 import '../models/shop.dart';
-import 'mock_reviews.dart';
 
 final List<Shop> mockPhysicalShops = [
-  Shop(
+  const Shop(
     id: '1',
     name: 'Pinguinho Brechó Space',
     type: ShopType.physical,
@@ -16,7 +14,6 @@ final List<Shop> mockPhysicalShops = [
       'assets/brecho13.jpeg'
     ],
     perks: ShopPerk.values,
-    reviews: mockReviews.getRandomSubset(),
   ),
   const Shop(
     id: '2',
@@ -32,7 +29,7 @@ final List<Shop> mockPhysicalShops = [
     ],
     perks: [ShopPerk.airConditioning],
   ),
-  Shop(
+  const Shop(
     id: '3',
     name: 'Brechó Stylus',
     type: ShopType.physical,
@@ -46,16 +43,15 @@ final List<Shop> mockPhysicalShops = [
       'assets/brecho33.jpeg'
     ],
     perks: ShopPerk.values,
-    reviews: mockReviews.getRandomSubset(),
   )
 ];
 
 final List<Shop> mockVirtualShops = [
   const Shop(
     id: '4',
-    name: 'Pinguinho Brechó Space',
+    name: 'Retrô Roupas & Relíquias',
     type: ShopType.virtual,
-    instagram: 'pinguinho_brecho_space',
+    instagram: 'retro_roupas_reliquias',
     openingHours: 'Seg. a Sex. - 08:00 às 18:00',
     imageUrls: [
       'assets/brecho.png',
@@ -64,11 +60,11 @@ final List<Shop> mockVirtualShops = [
     ],
     perks: [ShopPerk.newClothes],
   ),
-  Shop(
+  const Shop(
     id: '5',
-    name: 'Brechó de Elite',
+    name: 'Vintage Veste Bem',
     type: ShopType.virtual,
-    instagram: 'brecho_elite',
+    instagram: 'vintage.veste.bem',
     phone: '(91) 98337-5857',
     openingHours: 'Seg. a Sab. - 09:00 às 18:00',
     averageRating: 5.0,
@@ -77,13 +73,12 @@ final List<Shop> mockVirtualShops = [
       'assets/brecho22.jpeg',
       'assets/brecho23.jpeg'
     ],
-    reviews: mockReviews.getRandomSubset(),
   ),
-  Shop(
+  const Shop(
     id: '6',
-    name: 'Brechó Stylus',
+    name: 'Segunda Chance Fashion',
     type: ShopType.virtual,
-    instagram: 'stylus_brecho',
+    instagram: '2chancefashion',
     openingHours: 'Seg. a Sab. - 08:00 às 18:00',
     phone: '(91) 3212-0413',
     imageUrls: [
@@ -92,6 +87,7 @@ final List<Shop> mockVirtualShops = [
       'assets/brecho33.jpeg'
     ],
     perks: [ShopPerk.newClothes],
-    reviews: mockReviews.getRandomSubset(),
   )
 ];
+
+final List<Shop> mockShops = [...mockPhysicalShops, ...mockVirtualShops];

@@ -53,12 +53,12 @@ Arara is an ongoing project and some of the features described are still to be i
 - [ ] Maps
   - [ ] Explore thrift shops on a interactive map
   - [ ] Display shop location on a map on the details page
-- [ ] News and Papers
-  - [ ] News details
-  - [ ] Button to share the news link
-  - [ ] Redirect users to research paper on tile tap
+- [x] News and Papers
+  - [x] News details
+  - [x] Button to share the news link
+  - [x] Redirect users to research paper on tile tap
 - [ ] Reviews
-  - [ ] List recent reviews
+  - [x] List recent reviews
   - [ ] Leave a review
 - [ ] Profile
   - [ ] Profile editing

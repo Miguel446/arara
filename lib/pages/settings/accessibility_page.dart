@@ -25,7 +25,7 @@ class AccessibilityPage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Acessibilidade', style: textTheme.headlineMedium),
+            Text('Acessibilidade', style: textTheme.headlineLarge),
             const SizedBox(height: 16),
             const Divider(),
             Row(

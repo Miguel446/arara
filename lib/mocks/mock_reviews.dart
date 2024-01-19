@@ -1,3 +1,4 @@
+import '../models/user.dart';
 import '../utils/extensions.dart';
 import '../models/review.dart';
 import 'mock_users.dart';
@@ -65,3 +66,25 @@ final mockReviews = [
     imageUrls: _imageUrls.getRandomSubset(),
   ),
 ];
+
+extension ReviewCopyWith on Review {
+  Review copyWith({
+    String? id,
+    User? user,
+    int? stars,
+    String? text,
+    DateTime? createdAt,
+    List<String>? imageUrls,
+    String? shopName,
+  }) {
+    return Review(
+      id: id ?? this.id,
+      user: user ?? this.user,
+      stars: stars ?? this.stars,
+      text: text ?? this.text,
+      createdAt: createdAt ?? this.createdAt,
+      imageUrls: imageUrls ?? this.imageUrls,
+      shopName: shopName ?? this.shopName,
+    );
+  }
+}

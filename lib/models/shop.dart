@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'review.dart';
-
 class Shop {
   final String id;
   final String name;
@@ -13,7 +11,6 @@ class Shop {
   final List<String>? imageUrls;
   final double? averageRating;
   final List<ShopPerk>? perks;
-  final List<Review>? reviews;
 
   const Shop({
     required this.id,
@@ -26,7 +23,6 @@ class Shop {
     this.imageUrls,
     this.averageRating,
     this.perks,
-    this.reviews,
   });
 }
 

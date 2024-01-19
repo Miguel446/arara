@@ -7,12 +7,15 @@ import '../image_carousel.dart';
 import '../scaled_icon.dart';
 
 class ReviewCard extends StatelessWidget {
-  const ReviewCard(this.review, {super.key}) : hasBorder = false;
+  const ReviewCard(this.review, {this.showShopName = false, super.key})
+      : hasBorder = false;
 
-  const ReviewCard.border(this.review, {super.key}) : hasBorder = true;
+  const ReviewCard.border(this.review, {this.showShopName = false, super.key})
+      : hasBorder = true;
 
   final Review review;
   final bool hasBorder;
+  final bool showShopName;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +34,21 @@ class ReviewCard extends StatelessWidget {
             )
           : null,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!hasBorder && review.imageUrls?.isNotEmpty == true)
             Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: ImageCarousel(review.imageUrls!),
+            ),
+          if (review.shopName != null && showShopName)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Text(
+                review.shopName!,
+                style: textTheme.labelMedium,
+                textAlign: TextAlign.start,
+              ),
             ),
           Row(
             children: [

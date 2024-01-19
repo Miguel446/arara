@@ -79,7 +79,10 @@ class ReviewsPageBody extends StatelessWidget {
       itemCount: reviews.length,
       itemBuilder: (_, index) => Column(
         children: [
-          ReviewCard(reviews[index]),
+          ReviewCard(
+            reviews[index],
+            showShopName: true,
+          ),
           if (index != reviews.length - 1) const Divider(),
         ],
       ),

@@ -89,3 +89,5 @@ final List<Shop> mockVirtualShops = [
     perks: [ShopPerk.newClothes],
   )
 ];
+
+final List<Shop> mockShops = [...mockPhysicalShops, ...mockVirtualShops];

@@ -59,7 +59,7 @@ Arara é um projeto em andamento, e algumas das funcionalidades descritas ainda 
   - [x] Botão para compartilhar o link da notícia
   - [x] Redirecionar os usuários para o artigo de pesquisa ao tocar no item
 - [ ] Avaliações
-  - [ ] Listar avaliações recentes
+  - [x] Listar avaliações recentes
   - [ ] Deixar uma avaliação
 - [ ] Perfil
   - [ ] Edição de perfil

@@ -58,7 +58,7 @@ Arara is an ongoing project and some of the features described are still to be i
   - [x] Button to share the news link
   - [x] Redirect users to research paper on tile tap
 - [ ] Reviews
-  - [ ] List recent reviews
+  - [x] List recent reviews
   - [ ] Leave a review
 - [ ] Profile
   - [ ] Profile editing
